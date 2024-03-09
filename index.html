@@ -1,43 +1,86 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title></title>
-        <link src="styles/index.css" rel="stylesheet" />
-    </head>
 
-    <body class="body">
-        <header class="header">
-            <nav class="nav">
-                <a href="/">
-                    <img src="#" />
-                </a>
+<head>
+    <title></title>
+    <link src="styles/index.css" rel="stylesheet" />
+</head>
 
-                <ul class="nav__list">
-                    <li class="nav__list-item">
+<body class="body">
+    <nav class="nav">
+        <a href="/">
+            <img src="#" />
+        </a>
 
-                    </li>
-                    <li class="nav__list-item">
-                        
-                    </li>
-                    <li class="nav__list-item">
-                        
-                    </li>
-                    <li class="nav__list-item">
-                        
-                    </li>
-                </ul>
-            </nav>
-        </header>
+        <ul class="nav__list">
+            <li class="nav__list-item">
+                <a href="/help.html">Help</a>
+            </li>
+            <li class="nav__list-item">
+                <a href="/about.html">About</a>
+            </li>
+            <li class="nav__list-item">
+                <a href="/inspirations.html">Inspirations</a>
+            </li>
+            <li class="nav__list-item">
+                <a href="/resources.html">Resources</a>
+            </li>
+        </ul>
+    </nav>
 
+    <main class="main">
         <div class="page-container">
             <div class="game__container">
+                <div class="game__container-top">
+                    <ul class="statistic-bar__list">
+                        <li class="statistic-bar__item">
+                            <label class="visuallyhidden">Hunger</label>
+                            <progress data-statistic="Hunger" value="100"></progress>
+                        </li>
+                        <li class="statistic-bar__item">
+                            <label class="visuallyhidden">Thirst</label>
+                            <progress data-statistic="Thirst" value="100"></progress>
+                        </li>
+                        <li class="statistic-bar__item">
+                            <label class="visuallyhidden">Happiness</label>
+                            <progress data-statistic="Happiness" value="100"></progress>
+                        </li>
+                    </ul>
 
+                    <button class="game__button game__button--small">
+                        Settings
+                    </button>
+                </div>
+
+                <img class="game__sprite" src="#" alt="An animated sprite of a pet dog">
+
+                </img>
+                <div class="game__container-bottom">
+                    <ul class="game__menu">
+                        <li class="game__menu-item game__button">
+                            <button class="game__button">Shop</button>
+                        </li>
+                        <li class="game__menu-item game__button">
+                            <button class="game__button">Items</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </body>
+    </main>
+</body>
 
-    <footer>
+<footer class="footer">
+    <small class="footer__copyright">
 
-    </footer>
+    </small>
+
+    <select class="select">
+        <option class="select__option">
+
+        </option>
+    </select>
+</footer>
+
 </html>
