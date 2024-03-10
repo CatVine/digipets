@@ -1,0 +1,12 @@
+.game__container {
+    border: 5px solid #BA2C65;
+    border-radius: 25px;
+    height: 100%;
+    padding: 2rem;
+}
+
+.game__container-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

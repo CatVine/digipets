@@ -1,0 +1,9 @@
+@font-face {
+    font-family: DiaryOfAn8BitMage;
+    src: url('../assets/font/Diary\ of\ an\ 8-bit\ mage.woff');
+}
+  
+body {
+    font-family: DiaryOfAn8BitMage;
+    letter-spacing: 2px;
+}

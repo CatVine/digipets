@@ -1,0 +1,12 @@
+.cotton-candy body {
+    background: #FFDAEA;
+    color: black;
+}
+
+.cotton-candy .nav__list-link {
+    color: black;
+}
+
+.cotton-candy .nav__list-link:hover {
+    color: #BA2C65
+}
