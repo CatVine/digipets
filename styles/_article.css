@@ -37,6 +37,10 @@
     flex-direction: row-reverse;
 }
 
+.article__section-heading {
+    margin-bottom: 1.5rem;
+}
+
 .article__section > * {
     flex-basis: 50%;
 }
