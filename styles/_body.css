@@ -6,5 +6,8 @@ html, body {
 
 * {
     box-sizing: border-box;
-    min-width: 0;
+}
+
+a {
+    transition: 0.2s all;
 }
