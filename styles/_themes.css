@@ -15,6 +15,9 @@
     background: #EAA1B7
 }
 
-.cotton-candy .footer {
+.cotton-candy .footer__content {
     background: #EAA1B7
+}
+.cotton-candy .article__description {
+    color: #4A2937;
 }
