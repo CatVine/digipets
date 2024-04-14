@@ -21,3 +21,11 @@
 .cotton-candy .article__description {
     color: #4A2937;
 }
+
+.cotton-candy .button {
+    border-bottom-color: #EAA1B7;
+}
+
+.cotton-candy .button:hover {
+    color: white;
+}

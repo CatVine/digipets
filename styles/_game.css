@@ -3,10 +3,50 @@
     border-radius: 25px;
     height: 100%;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    background: lightblue; /*change to a background image url*/
 }
 
 .game__container-top {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.game__sprite-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game__sprite {
+
+}
+
+.game__container-bottom {
+    display: flex;
+    flex-direction:column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.game__love-container {
+
+}
+
+.game__love-value {
+
+}
+
+.game__menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.game__menu-item {
+
 }

@@ -1,0 +1,14 @@
+.button {
+    background: white;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border:none;
+    border-bottom: 4px solid transparent; 
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #BA2C65;
+    border-bottom: none;
+    transform: translateY(4px);
+}

@@ -24,3 +24,9 @@
 .nav__list-link:hover {
     text-decoration: underline;
 }
+
+@media screen and (max-width:768px) {
+    .nav__list {
+        display: none;
+    }
+}
