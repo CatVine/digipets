@@ -28,4 +28,5 @@
 
 .cotton-candy .button:hover {
     color: white;
+    border-bottom-color: #BA2C65;
 }

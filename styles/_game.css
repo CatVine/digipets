@@ -3,12 +3,17 @@
     border-radius: 25px;
     height: 100%;
     padding: 2rem;
+    background: lightblue; 
+}
+
+.game__main {
+    height: 100%;
     display: flex;
     flex-direction: column;
     background: lightblue; /*change to a background image url*/
 }
 
-.game__container-top {
+.game__main-top {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -25,7 +30,7 @@
 
 }
 
-.game__container-bottom {
+.game__main-bottom {
     display: flex;
     flex-direction:column;
     align-items: flex-end;

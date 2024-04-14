@@ -5,12 +5,10 @@
     border:none;
     border-bottom: 4px solid transparent; 
     cursor: pointer;
-    transition: 0.2s transform;
-    transition: 0.2s background;
+    transition: 0.2s all;
 }
 
 .button:hover {
     background: #BA2C65;
-    border-bottom: none;
-    transform: translateY(4px);
+    transform: scale(0.95);
 }
