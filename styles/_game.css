@@ -1,0 +1,57 @@
+.game__container {
+    border: 5px solid #BA2C65;
+    border-radius: 25px;
+    height: 100%;
+    padding: 2rem;
+    background: lightblue; 
+}
+
+.game__main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: lightblue; /*change to a background image url*/
+}
+
+.game__main-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.game__sprite-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game__sprite {
+
+}
+
+.game__main-bottom {
+    display: flex;
+    flex-direction:column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.game__love-container {
+
+}
+
+.game__love-value {
+
+}
+
+.game__menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.game__menu-item {
+
+}

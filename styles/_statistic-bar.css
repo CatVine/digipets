@@ -1,0 +1,51 @@
+.statistic-bar__list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.statistic-bar__item {}
+
+
+progress[value] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    width: 150px;
+    margin-left: 12px;
+    border-radius: 10px;
+    background: white;
+  }
+
+  progress[value]::-webkit-progress-bar {
+    border-radius: 10px;
+    background: white;
+    padding: 3px;
+  }
+
+  progress[value][data-statistic="Happiness"]::-webkit-progress-value {
+    border-radius: 10em;
+    background: lightcoral;
+  }
+  progress[value][data-statistic="Thirst"]::-webkit-progress-value {
+    border-radius: 10em;
+    background: cornflowerblue;
+  }
+  progress[value][data-statistic="Hunger"]::-webkit-progress-value {
+    border-radius: 10em;
+    background: lightgreen;
+  }
+
+  progress[value][data-statistic="Happiness"]::-moz-progress-bar {
+    border-radius: 10em;
+    background: lightcoral;
+  }
+  progress[value][data-statistic="Thirst"]::-moz-progress-bar {
+    border-radius: 10em;
+    background: cornflowerblue;
+  }
+  progress[value][data-statistic="Hunger"]::-moz-progress-bar {
+    border-radius: 10em;
+    background: lightgreen;
+  }

@@ -1,0 +1,9 @@
+.footer {
+}
+
+.footer__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem 1.5rem;
+}

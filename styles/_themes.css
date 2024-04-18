@@ -1,0 +1,32 @@
+.cotton-candy body {
+    background: #FFDAEA;
+    color: black;
+}
+
+.cotton-candy a {
+    color: black;
+}
+
+.cotton-candy a:hover {
+    color: #BA2C65
+}
+
+.cotton-candy .article__header {
+    background: #EAA1B7
+}
+
+.cotton-candy .footer__content {
+    background: #EAA1B7
+}
+.cotton-candy .article__description {
+    color: #4A2937;
+}
+
+.cotton-candy .button {
+    border-bottom-color: #EAA1B7;
+}
+
+.cotton-candy .button:hover {
+    color: white;
+    border-bottom-color: #BA2C65;
+}

@@ -1,70 +1,109 @@
 <!DOCTYPE html>
 
-<html>
+<html class="cotton-candy">
 
 <head>
     <title></title>
-    <link src="styles/index.css" rel="stylesheet" />
+    <link href="./styles/index.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body class="body">
-    <nav class="nav">
-        <a href="/">
-            <img src="#" />
-        </a>
+    <div class="nav">
+        <div class="wrap">
+            <nav class="nav__container">
+                <div class="nav__logo">
+                    <a href="/">
+                        <img src="#" />
+                    </a>
+                </div>
 
-        <ul class="nav__list">
-            <li class="nav__list-item">
-                <a href="/help.html">Help</a>
-            </li>
-            <li class="nav__list-item">
-                <a href="/about.html">About</a>
-            </li>
-            <li class="nav__list-item">
-                <a href="/inspirations.html">Inspirations</a>
-            </li>
-            <li class="nav__list-item">
-                <a href="/resources.html">Resources</a>
-            </li>
-        </ul>
-    </nav>
+
+                <ul class="nav__list">
+                    <li class="nav__list-item">
+                        <a class="nav__list-link" href="/help.html">Help</a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a class="nav__list-link" href="/about.html">About</a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a class="nav__list-link" href="/inspirations.html">Inspirations</a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a class="nav__list-link" href="/resources.html">Resources</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
     <main class="main">
         <div class="page-container">
-            <div class="game__container">
-                <div class="game__container-top">
-                    <ul class="statistic-bar__list">
-                        <li class="statistic-bar__item">
-                            <label class="visuallyhidden">Hunger</label>
-                            <progress data-statistic="Hunger" value="100"></progress>
-                        </li>
-                        <li class="statistic-bar__item">
-                            <label class="visuallyhidden">Thirst</label>
-                            <progress data-statistic="Thirst" value="100"></progress>
-                        </li>
-                        <li class="statistic-bar__item">
-                            <label class="visuallyhidden">Happiness</label>
-                            <progress data-statistic="Happiness" value="100"></progress>
-                        </li>
-                    </ul>
+            <div class="wrap">
+                <div class="game__container">
+                    <!-- Start Screen -->
 
-                    <button class="game__button game__button--small">
-                        Settings
-                    </button>
-                </div>
+                    <div id="startScreen" class="start-screen" data-show="true">
+                        <h1 class="start-screen__heading">
+                            Digipets
+                        </h1>
+                        <button class="button">
+                            Start game
+                        </button>
+                    </div>
 
-                <img class="game__sprite" src="#" alt="An animated sprite of a pet dog">
+                    <!-- Pet Select Screen -->
 
-                </img>
-                <div class="game__container-bottom">
-                    <ul class="game__menu">
-                        <li class="game__menu-item game__button">
-                            <button class="game__button">Shop</button>
-                        </li>
-                        <li class="game__menu-item game__button">
-                            <button class="game__button">Items</button>
-                        </li>
-                    </ul>
+                    <!-- Shop Modal -->
+
+                    <!-- Inventory Modal -->
+
+                    <!-- Settings Modal -->
+
+                    <!-- Main Game Screen -->
+                    <div id="main-game" class="game__main is--hidden" data-show="false">
+                        <div class="game__main-top">
+                            <ul class="statistic-bar__list">
+                                <li class="statistic-bar__item">
+                                    <label class="visuallyhidden">Hunger</label>
+                                    <progress data-statistic="Hunger" max="100" value="25"></progress>
+                                </li>
+                                <li class="statistic-bar__item">
+                                    <label class="visuallyhidden">Thirst</label>
+                                    <progress data-statistic="Thirst" max="100" value="50"></progress>
+                                </li>
+                                <li class="statistic-bar__item">
+                                    <label class="visuallyhidden">Happiness</label>
+                                    <progress data-statistic="Happiness" max="100" value="100"></progress>
+                                </li>
+                            </ul>
+
+                            <div class="game__button-container">
+                                <button class="button button--small">
+                                    Settings
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="game__sprite-container">
+                            <img class="game__sprite" src="#" alt="An animated sprite of a pet dog">
+                        </div>
+
+                        </img>
+                        <div class="game__main-bottom">
+                            <div class="game__love-container">
+                                <p class="game__love-value">0</p>
+                            </div>
+                            <ul class="game__menu">
+                                <li class="game__menu-item">
+                                    <button class="button">Shop</button>
+                                </li>
+                                <li class="game__menu-item">
+                                    <button class="button">Items</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -72,15 +111,38 @@
 </body>
 
 <footer class="footer">
-    <small class="footer__copyright">
+    <div class="wrap">
+        <div class="footer__content">
+            <small class="footer__copyright">
+                (C) Catriona Vine 2024
+            </small>
 
-    </small>
-
-    <select class="select">
-        <option class="select__option">
-
-        </option>
-    </select>
+            <form class="footer__theme-select" id="themeSelect">
+                <select class="select">
+                    <option class="select__option" value="">
+                        Select Theme
+                    </option>
+                    <option class="select__option" value="cottonCandy">
+                        Cotton Candy
+                    </option>
+                    <option class="select__option" value="oceanBreeze">
+                        Ocean Breeze
+                    </option>
+                    <option class="select__option" value="forestFerns">
+                        Forest Ferns
+                    </option>
+                    <option class="select__option" value="mochaLatte">
+                        Mocha Latte
+                    </option>
+                    <option class="select__option" value="monochrome">
+                        Monochrome
+                    </option>
+                </select>
+            </form>
+        </div>
+    </div>
 </footer>
+
+<script type="module" src="./scripts/index.js"></script>
 
 </html>
