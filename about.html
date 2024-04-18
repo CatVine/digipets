@@ -9,14 +9,15 @@
 </head>
 
 <body class="body">
-    <nav class="nav">
+    <div class="nav">
         <div class="wrap">
-            <div class="nav__container">
+            <nav class="nav__container">
                 <div class="nav__logo">
                     <a href="/">
                         <img src="#" />
                     </a>
                 </div>
+
 
                 <ul class="nav__list">
                     <li class="nav__list-item">
@@ -32,9 +33,31 @@
                         <a class="nav__list-link" href="/resources.html">Resources</a>
                     </li>
                 </ul>
-            </div>
+
+                <button class="mobile-nav__button js-mobile-nav__btn">
+                    <svg x="0px" y="0px" width="25" height="25" viewBox="0 0 50 50">
+                        <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"></path>
+                    </svg>
+                </button>
+                <nav class="mobile-nav js-mobile-nav">
+                    <ul class="mobile-nav__list">
+                        <li class="mobile-nav__list-item">
+                            <a class="mobile-nav__list-link" href="/help.html">Help</a>
+                        </li>
+                        <li class="mobile-nav__list-item">
+                            <a class="mobile-nav__list-link" href="/about.html">About</a>
+                        </li>
+                        <li class="mobile-nav__list-item">
+                            <a class="mobile-nav__list-link" href="/inspirations.html">Inspirations</a>
+                        </li>
+                        <li class="mobile-nav__list-item">
+                            <a class="mobile-nav__list-link" href="/resources.html">Resources</a>
+                        </li>
+                    </ul>
+                </nav>
+            </nav>
         </div>
-    </nav>
+    </div>
 
     <main class="main">
         <div class="wrap">
@@ -97,32 +120,35 @@
 <footer class="footer">
     <div class="wrap">
         <div class="footer__content">
-            <small class="footer__copyright">
-                (C) Catriona Vine 2024
-            </small>
+            <div class="footer__top">
+                <small class="footer__copyright">
+                    (C) Catriona Vine 2024
+                </small>
 
-            <form class="footer__theme-select" id="themeSelect">
-                <select class="select">
-                    <option class="select__option" value="">
-                        Select Theme
-                    </option>
-                    <option class="select__option" value="cottonCandy">
-                        Cotton Candy
-                    </option>
-                    <option class="select__option" value="oceanBreeze">
-                        Ocean Breeze
-                    </option>
-                    <option class="select__option" value="forestFerns">
-                        Forest Ferns
-                    </option>
-                    <option class="select__option" value="mochaLatte">
-                        Mocha Latte
-                    </option>
-                    <option class="select__option" value="monochrome">
-                        Monochrome
-                    </option>
-                </select>
-            </form>
+                <form class="footer__theme-select" id="themeSelect">
+                    <select class="select">
+                        <option class="select__option" value="">
+                            Select Theme
+                        </option>
+                        <option class="select__option" value="cottonCandy">
+                            Cotton Candy
+                        </option>
+                        <option class="select__option" value="oceanBreeze">
+                            Ocean Breeze
+                        </option>
+                        <option class="select__option" value="forestFerns">
+                            Forest Ferns
+                        </option>
+                        <option class="select__option" value="mochaLatte">
+                            Mocha Latte
+                        </option>
+                        <option class="select__option" value="monochrome">
+                            Monochrome
+                        </option>
+                    </select>
+                </form>
+            </div>
+            <p class="footer__credit">Icons by <a class="footer__credit-link" href="https://icons8.com/">Icons8</a></p>
         </div>
     </div>
 </footer>

@@ -23,6 +23,12 @@
 
 .mobile-nav__button {
     display: none;
+    background: transparent;
+    border: none;
+}
+
+.mobile-nav__button svg {
+    fill: black;
 }
 
 @media screen and (max-width:768px) {
