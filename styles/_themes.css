@@ -1,3 +1,5 @@
+/* Cotton Candy */ 
+
 .cotton-candy body {
     background: #FFDAEA;
     color: black;
@@ -29,4 +31,8 @@
 .cotton-candy .button:hover {
     color: white;
     border-bottom-color: #BA2C65;
+}
+
+.cotton-candy .mobile-nav {
+    background: #EAA1B7;
 }
