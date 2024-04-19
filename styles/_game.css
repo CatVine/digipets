@@ -67,7 +67,9 @@
 }
 
 .game__sprite {
-
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
 }
 
 .game__main-bottom {
