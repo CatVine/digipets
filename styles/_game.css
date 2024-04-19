@@ -6,6 +6,46 @@
     background: lightblue; 
 }
 
+.game__screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 20px;
+}
+
+.game__select-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+    margin-top: 24px;
+}
+
+.game__option-button {
+    border: 5px solid transparent;
+    padding: 24px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.game__option-image {
+    aspect-ratio: 1;
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+}
+
+.game__heading--h1 {
+    font-size: 56px;
+}
+
+.game__heading--h2 {
+    font-size: 24px;
+}
+
+
 .game__main {
     height: 100%;
     display: flex;

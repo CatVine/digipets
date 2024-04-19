@@ -20,6 +20,7 @@
 .cotton-candy .footer__content {
     background: #EAA1B7
 }
+
 .cotton-candy .article__description {
     color: #4A2937;
 }
@@ -35,4 +36,8 @@
 
 .cotton-candy .mobile-nav {
     background: #EAA1B7;
+}
+
+.cotton-candy .game__option-container {
+    border: 5px solid #BA2C65;
 }
