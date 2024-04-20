@@ -113,6 +113,11 @@
     justify-content: center;
 }
 
+.modal__item-button.sold-out {
+    background: grey;
+    color: darkslategrey;
+}
+
 .modal__close-button {
     position: absolute;
     top: 8px;

@@ -1,4 +1,5 @@
 import { showElement, hideElement } from "../utils/index.js"
+import { setLoveTotal } from "../love-counter/index.js";
 
 export const handleShopModal = (modal, closeButton) => {
     if (!modal.classList.contains('is--active')) {
@@ -41,19 +42,19 @@ export const setShopItems = (itemData, modal) => {
 
         switch (tab.id) {
             case "shopCare":
-                listItems = composeItemElements(careItems);
+                listItems = composeItemElements(careItems, 'care');
                 listItems.forEach((item) => {
                     listContainer.insertAdjacentHTML('beforeend', item);
                 })
                 break;
             case "shopClothing":
-                listItems = composeItemElements(clothingItems);
+                listItems = composeItemElements(clothingItems, 'clothing');
                 listItems.forEach((item) => {
                     listContainer.insertAdjacentHTML('beforeend', item);
                 })
                 break;
             case "shopDecor":
-                listItems = composeItemElements(decorItems);
+                listItems = composeItemElements(decorItems, 'decor');
                 listItems.forEach((item) => {
                     listContainer.insertAdjacentHTML('beforeend', item);
                 })
@@ -64,9 +65,9 @@ export const setShopItems = (itemData, modal) => {
     })
 }
 
-export const composeItemElements = (items) => {
+export const composeItemElements = (items, type) => {
     const listItems = items.map(item =>
-        `<li class="modal__item${item.purchased ? ' sold-out' : ''}">
+        `<li class="modal__item">
         <img class="modal__item-image" src=${item.image} alt="" />
 
         <div class="modal__item-information">
@@ -88,11 +89,46 @@ export const composeItemElements = (items) => {
             ${item.description}
         </p>
 
-        <button class="modal__item-button button button--small">
+        <button class="modal__item-button button button--small ${item.purchased ? ' sold-out' : ''}" data-type="${type}" data-item-id="${item.id}" data-item-price="${item.price} ">
             ${item.purchased ? 'Sold Out' : 'Buy'}
         </button>
     </li>`
     )
 
     return listItems;
+}
+
+export const handleBuyItem = (button) => {
+    const itemType = button.dataset.type;
+    const itemId = Number(button.dataset.itemId);
+    const itemPrice = Number(button.dataset.itemPrice);
+    const currentLove = localStorage.getItem('loveTotal');
+    const loveElement = document.querySelector('#loveCounter');
+    let currentItems = JSON.parse(localStorage.getItem('items'));
+
+    if (currentLove > itemPrice) {
+        setLoveTotal((currentLove - itemPrice), loveElement);
+
+        let itemCategory = currentItems[itemType];
+        let itemToUpdate;
+        itemCategory.forEach((item) => {
+            if (item.id === itemId) {
+                itemToUpdate = item;
+            }
+        })
+        if (itemToUpdate) {
+            switch (itemType) {
+                case 'care':
+                    itemToUpdate.quantity += 1;
+                    break;
+                default:
+                    itemToUpdate.purchased = true;
+            }
+        }
+        localStorage.setItem('items', JSON.stringify(currentItems));
+        button.classList.add('sold-out');
+        button.textContent = 'Sold out';
+    } else {
+        console.log('not enough love!')
+    }
 }
