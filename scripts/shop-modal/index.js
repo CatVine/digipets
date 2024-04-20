@@ -32,7 +32,7 @@ export const setShopItems = (itemData, modal) => {
     const clothingItems = itemData.clothing;
     const decorItems = itemData.decor;
     localStorage.setItem('items', JSON.stringify(itemData));
-    
+
     const shopTabs = [...modal.querySelectorAll('.modal__tab-panel')];
 
     shopTabs.forEach((tab) => {
@@ -66,7 +66,7 @@ export const setShopItems = (itemData, modal) => {
 
 export const composeItemElements = (items) => {
     const listItems = items.map(item =>
-        `<li class="modal__item">
+        `<li class="modal__item${item.purchased ? ' sold-out' : ''}">
         <img class="modal__item-image" src=${item.image} alt="" />
 
         <div class="modal__item-information">
@@ -89,7 +89,7 @@ export const composeItemElements = (items) => {
         </p>
 
         <button class="modal__item-button button button--small">
-            Buy
+            ${item.purchased ? 'Sold Out' : 'Buy'}
         </button>
     </li>`
     )

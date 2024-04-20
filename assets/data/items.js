@@ -8,8 +8,8 @@ export const items = {
                 "image": "#" ,
                 "description": "Basic food" ,
                 "id": 1 ,
-                "purchased": false ,
-                "equipped": false 
+                "quantity": 0
+
             },
             {
                 "name": "Basic Water",
@@ -17,8 +17,7 @@ export const items = {
                 "image": "#" ,
                 "description": "Basic water" ,
                 "id": 2,
-                "purchased": false ,
-                "equipped": false 
+                "quantity": 0
             },
         ],
         clothing: [
