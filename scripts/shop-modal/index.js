@@ -14,16 +14,24 @@ export const handleShopModal = (modal, closeButton) => {
     shopTabButtons.forEach((button) => {
         const associatedTabPanel = shopTabs.filter((tab) => tab.id === button.dataset.toggle)[0];
 
-        button.addEventListener('click', () => { switchTab(shopTabs, associatedTabPanel) })
+        button.addEventListener('click', () => { switchTab(shopTabs, associatedTabPanel, shopTabButtons, button) })
     })
 }
 
-export const switchTab = (tabs, tabPanel) => {
+export const switchTab = (tabs, tabPanel, tabButtons, activeTab) => {
+    tabButtons.forEach(button => button.classList.remove('is--active'));
+
     tabs.forEach((tab) => {
         if (tab === tabPanel) {
             showElement(tab);
         } else {
             hideElement(tab);
+        }
+    })
+
+    tabButtons.forEach(button => {
+        if (button === activeTab) {
+            button.classList.add('is--active');
         }
     })
 }
