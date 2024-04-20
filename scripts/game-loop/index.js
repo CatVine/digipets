@@ -2,7 +2,8 @@ import { petSelect, setPetSprite } from "../pet-select/index.js";
 import { checkForDataProperty } from "../utils/index.js";
 import { hideElement, showElement } from "../utils/index.js";
 import { increaseLove, setLoveTotal } from "../love-counter/index.js";
-import { handleShopModal } from "../shop-modal/index.js";
+import { handleShopModal, setShopItems } from "../shop-modal/index.js";
+import { items } from "../../assets/data/items.js";
 
 export const startGameLoop = () => {
 
@@ -16,12 +17,14 @@ export const startGameLoop = () => {
   const shopCloseButton = document.querySelector('#shopClose');
   const itemsButton = document.querySelector('#itemsButton');
 
-  // Handle choosing a pet if there is no existing save data
+  // Handle loading data and choosing a pet if there is no existing save data
   if (!checkForDataProperty('petChoice')) {
     petSelect(petImageContainer, mainGameWindow);
+    setShopItems(items.data, shopModal);
   } else {
     setPetSprite(petImageContainer);
     setLoveTotal(localData.loveTotal, loveCounter);
+    setShopItems(JSON.parse(localData.items), shopModal);
     showElement(mainGameWindow);
   }
 
