@@ -8,6 +8,7 @@ export const increaseLove = (amount, counterElement) => {
 
 export const setLoveTotal = (total, element) => {
     element.textContent = total;
+    localStorage.setItem('loveTotal', total)
 
     if (total === undefined) {
         element.textContent = 0;

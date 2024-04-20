@@ -131,11 +131,11 @@ export const handleBuyItem = (button) => {
                     break;
                 default:
                     itemToUpdate.purchased = true;
+                    button.classList.add('sold-out');
+                    button.textContent = 'Sold out';
             }
         }
         localStorage.setItem('items', JSON.stringify(currentItems));
-        button.classList.add('sold-out');
-        button.textContent = 'Sold out';
     } else {
         console.log('not enough love!')
     }
