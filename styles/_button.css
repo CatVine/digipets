@@ -13,7 +13,7 @@
 }
 
 .button:hover {
-    background: #BA2C65;
+    background: transparent;
     transform: scale(0.95);
 }
 
