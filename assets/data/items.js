@@ -3,21 +3,24 @@ export const items = {
     {
         care: [
             {
-                "name": "Basic Food",
+                "name": "Food",
                 "price": 500 ,
                 "image": "#" ,
-                "description": "Basic food" ,
+                "description": "Feed your pup!" ,
                 "id": 1 ,
-                "quantity": 0
-
+                "quantity": 0,
+                "statistic": "hunger",
+                "replenishValue": 50
             },
             {
                 "name": "Basic Water",
                 "price": 500 ,
                 "image": "#" ,
-                "description": "Basic water" ,
+                "description": "Give your pup a drink" ,
                 "id": 2,
-                "quantity": 0
+                "quantity": 0,
+                "statistic": "thirst",
+                "replenishValue" : 50
             },
         ],
         clothing: [

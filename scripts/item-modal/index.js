@@ -1,3 +1,4 @@
+import { increaseStatistic } from "../statistic-bars/index.js";
 import { showElement, hideElement } from "../utils/index.js"
 
 export const handleInventoryModal = (modal, petImageContainer) => {
@@ -132,7 +133,17 @@ export const handleEquipItem = (tabButtons, button, sprite) => {
     if (itemToUpdate) {
         switch (itemType) {
             case 'care':
-                itemToUpdate.quantity -= 1;
+                const increaseValue = itemToUpdate.replenishValue;
+                const statisticType = itemToUpdate.statistic;
+                const relevantStatisticBar = document.querySelector(`#${statisticType}`);
+                if (itemToUpdate.quantity > 0) {
+                    itemToUpdate.quantity -= 1;
+                    increaseStatistic(relevantStatisticBar, increaseValue);
+                };
+                if (itemToUpdate.quantity === 0) {
+                    button.classList.add('disabled');
+                    button.textContent = 'None';
+                }
                 break;
             default:
                 itemToUpdate.equipped = true;
