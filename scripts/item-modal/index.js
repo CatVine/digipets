@@ -104,6 +104,11 @@ export const composeInventoryElements = (items, type) => {
 
         <div class="modal__item-information">
             <p class="modal__item-name">${item.name}</p>
+            ${type === "care" ? (`<p class="modal__item-value">x
+            <span class="modal__item-quantity">
+                ${item.quantity}
+            </span>
+        </p>`) : ''}
         </div>
 
         <p class="modal__item-description">
@@ -130,9 +135,10 @@ export const handleEquipItem = (tabButtons, button, sprite) => {
   let itemToUpdate;
 
   if (itemType !== "care") {
-    tabButtons.forEach((button) => {
-      button.classList.remove("equipped");
-      button.textContent = "Equip";
+    const sameTabButtons = tabButtons.filter(button => button.dataset.type === itemType);
+    sameTabButtons.forEach((button) => {
+        button.classList.remove("equipped");
+        button.textContent = "Equip";
     });
   }
 
@@ -154,14 +160,17 @@ export const handleEquipItem = (tabButtons, button, sprite) => {
         const relevantStatisticBar = document.querySelector(
           `#${statisticType}`
         );
+        const quantityCounter = button.parentElement.querySelector('.modal__item-quantity');
         if (itemToUpdate.quantity > 0) {
           itemToUpdate.quantity -= 1;
-          increaseStatistic(relevantStatisticBar, increaseValue);
+          console.log(quantityCounter, quantityCounter.textContent);
+          quantityCounter.textContent = Number(quantityCounter.textContent) - 1;
         }
         if (itemToUpdate.quantity === 0) {
           button.classList.add("disabled");
           button.textContent = "None";
         }
+        increaseStatistic(relevantStatisticBar, increaseValue);
         break;
       case "decor":
         if (itemToUpdate.purchased === true) {

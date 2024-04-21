@@ -216,14 +216,16 @@ select {
 .game__select-options {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
-    gap: 50px;
-    margin-top: 24px;
+    gap: 25px;
+    margin-top: 12px;
+    flex-wrap: wrap;
 }
 
 .game__option-button {
-    border: 5px solid transparent;
-    padding: 24px 12px;
+    border: none;
+    padding: 12px 12px;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -241,6 +243,7 @@ select {
 
 .game__heading--h2 {
     font-size: 24px;
+    text-align: center;
 }
 
 .game__main {
@@ -250,6 +253,7 @@ select {
     background: lightblue;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     padding: 1.5rem;
     border-radius: 5px;
     position: relative;
@@ -275,8 +279,8 @@ select {
 }
 
 .game__sprite {
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     object-fit: cover;
     cursor: pointer;
 }
@@ -534,6 +538,14 @@ select {
     padding: 2.5rem 1.5rem;
     border-bottom: 1px solid #EAA1B7;
     color: black;
+}
+
+.nav__logo p {
+    font-size: 30px;
+}
+
+.nav__logo a {
+    text-decoration: none;
 }
 
 .nav__list {
