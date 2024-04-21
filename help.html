@@ -1,41 +1,199 @@
 <!DOCTYPE html>
 
-<html>
-    <head>
-        <title></title>
-        <link src="styles/index.css" rel="stylesheet" />
-    </head>
+<html class="cotton-candy">
 
-    <body class="body">
-        <header class="header">
-            <nav class="nav">
-                <a href="/">
-                    <img src="#" />
-                </a>
+<head>
+    <title></title>
+    <link href="./styles/index.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="body">
+    <div class="nav">
+        <div class="wrap">
+            <nav class="nav__container">
+                <div class="nav__logo">
+                    <a href="index.html">
+                        <img src="#" />
+                    </a>
+                </div>
+
 
                 <ul class="nav__list">
                     <li class="nav__list-item">
-
+                        <a class="nav__list-link" href="help.html">Help</a>
                     </li>
                     <li class="nav__list-item">
-                        
+                        <a class="nav__list-link" href="about.html">About</a>
                     </li>
                     <li class="nav__list-item">
-                        
+                        <a class="nav__list-link" href="inspirations.html">Inspirations</a>
                     </li>
                     <li class="nav__list-item">
-                        
+                        <a class="nav__list-link" href="resources.html">Resources</a>
                     </li>
                 </ul>
+
+                <button class="mobile-nav__button js-mobile-nav__btn">
+                    <svg x="0px" y="0px" width="25" height="25" viewBox="0 0 50 50">
+                        <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"></path>
+                    </svg>
+                </button>
+                <nav class="mobile-nav js-mobile-nav">
+                    <ul class="mobile-nav__list">
+                        <li class="mobile-nav__list-item">
+                            <a class="mobile-nav__list-link" href="help.html">Help</a>
+                        </li>
+                        <li class="mobile-nav__list-item">
+                            <a class="mobile-nav__list-link" href="about.html">About</a>
+                        </li>
+                        <li class="mobile-nav__list-item">
+                            <a class="mobile-nav__list-link" href="inspirations.html">Inspirations</a>
+                        </li>
+                        <li class="mobile-nav__list-item">
+                            <a class="mobile-nav__list-link" href="resources.html">Resources</a>
+                        </li>
+                    </ul>
+                </nav>
             </nav>
-        </header>
-
-        <div class="page-container">
-            
         </div>
-    </body>
+    </div>
 
-    <footer>
+    <main class="main">
+        <div class="wrap">
+            <header class="article__header">
+                <h1 class="article__heading">
+                    Help Guide
+                </h1>
+                <p class="article__description">
+                    A quick reference guide to help keep you on track.
+                </p>
+            </header>
 
-    </footer>
+            <div class="article__content">
+                <aside class="article__sidebar">
+                    <ol class="article__sidebar-list">
+                        <li class="article__sidebar-list-item">
+                            <a class="article__sidebar-list-link" href="#section1">
+                                Section 1
+                            </a>
+                        </li>
+
+                        <li class="article__sidebar-list-item">
+                            <a class="article__sidebar-list-link" href="#section2">
+                                Section 2
+                            </a>
+                        </li>
+
+                        <li class="article__sidebar-list-item">
+                            <a class="article__sidebar-list-link" href="#section3">
+                                Section 3
+                            </a>
+                        </li>
+                    </ol>
+                </aside>
+
+                <article class="article__container">
+                    <section class="article__section" id="section1">
+                        <div class="article__section-left">
+                            <h2 class="article__section-heading">
+                                Section 1
+                            </h2>
+                            <div class="article__section-content">
+                                <p class="article__section-paragraph">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum incidunt animi
+                                    ratione
+                                    recusandae magnam, excepturi dolores veritatis reiciendis consequuntur sint aut,
+                                    illo
+                                    dolorum alias facilis, non totam. Sapiente soluta non repudiandae aut culpa
+                                    consequuntur
+                                    possimus sed dignissimos veritatis nulla, facere nam animi iste debitis. Mollitia
+                                    voluptates eum expedita repudiandae corporis?
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="article__section-right">
+                            <img class="article__image" alt="Image description" src="#" />
+                        </div>
+                    </section>
+
+                    <section class="article__section article__section--alt" id="section2">
+                        <div class="article__section-left">
+                            <h2 class="article__section-heading">
+                                Section 2
+                            </h2>
+                            <div class="article__section-content">
+                                <p class="article__section-paragraph">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores fugit officia
+                                    obcaecati
+                                    laborum alias eius illum repudiandae. Eligendi vel saepe velit culpa tempore sequi
+                                    aliquid quam eveniet unde, delectus quaerat minus adipisci ullam temporibus magnam
+                                    debitis soluta officiis! Natus molestiae aperiam quisquam praesentium reprehenderit
+                                    perspiciatis impedit incidunt dolor facere quaerat.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="article__section-right">
+                            <img class="article__image" alt="Image description" src="#" />
+                        </div>
+                    </section>
+
+                    <section class="article__section" id="section3">
+                        <div class="article__section-left">
+                            <h2 class="article__section-heading">
+                                Section 3
+                            </h2>
+                            <div class="article__section-content">
+                                <p class="article__section-paragraph">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum incidunt animi
+                                    ratione
+                                    recusandae magnam, excepturi dolores veritatis reiciendis consequuntur sint aut,
+                                    illo
+                                    dolorum alias facilis, non totam. Sapiente soluta non repudiandae aut culpa
+                                    consequuntur
+                                    possimus sed dignissimos veritatis nulla, facere nam animi iste debitis. Mollitia
+                                    voluptates eum expedita repudiandae corporis?
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="article__section-right">
+                            <img class="article__image" alt="Image description" src="#" />
+                        </div>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </main>
+</body>
+
+<footer class="footer">
+    <div class="wrap">
+        <div class="footer__content">
+            <div class="footer__top">
+                <small class="footer__copyright">
+                    (C) Catriona Vine 2024
+                </small>
+
+                <form class="footer__theme-select" id="themeSelect">
+                    <select class="select">
+                        <option class="select__option" value="">
+                            Select Theme
+                        </option>
+                        <option class="select__option" value="cotton-candy">
+                            Cotton Candy
+                        </option>
+                        <option class="select__option" value="ocean-breeze">
+                            Ocean Breeze
+                        </option>
+                    </select>
+                </form>
+            </div>
+            <p class="footer__credit">Icons by <a class="footer__credit-link" href="https://www.svgrepo.com/">SVGRepo</a></p>
+        </div>
+    </div>
+</footer>
+
 </html>
