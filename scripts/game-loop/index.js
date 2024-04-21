@@ -5,8 +5,9 @@ import { handleLoveInterval, increaseLove, setLoveTotal } from "../love-counter/
 import { handleShopModal, setShopItems, handleBuyItem } from "../shop-modal/index.js";
 import { handleEquipItem, handleInventoryModal, setInventoryItems } from "../item-modal/index.js";
 import { setStatistic, reduceStatistic } from "../statistic-bars/index.js";
-import { items } from "../../assets/data/items.js"; 
+import { items } from "../../assets/data/items.js";
 import { setBackgroundImage, setEquippedItem } from "../item-modal/index.js";
+import { handleSettingsModal, setSound } from "../settings/index.js";
 
 export const startGameLoop = () => {
 
@@ -24,6 +25,10 @@ export const startGameLoop = () => {
   const hungerBar = document.querySelector('#hunger');
   const thirstBar = document.querySelector('#thirst');
   const defaultBGImage = items.data.decor.find(item => item.equipped === true).image;
+  const settingsButton = document.querySelector('#settingsButton');
+  const settingsCloseButton = document.querySelector('#settingsClose');
+  const settingsModal = document.querySelector('#settingsModal');
+  const soundToggle = settingsModal.querySelector('#sound');
 
   // Handle loading data and choosing a pet if there is no existing save data
   if (!checkForDataProperty('petChoice')) {
@@ -40,6 +45,7 @@ export const startGameLoop = () => {
     setInventoryItems(JSON.parse(localData.items), inventoryModal);
     setBackgroundImage(mainGameWindow, JSON.parse(localData.items).decor.find(item => item.equipped === true).image);
     setEquippedItem(petImageContainer, JSON.parse(localData.items).clothing.find(item => item.equipped === true).image[petType]);
+    setSound(localData.sound, mainGameWindow, soundToggle);
     shopModal = document.querySelector('#shopModal');
     showElement(mainGameWindow);
   }
@@ -59,9 +65,11 @@ export const startGameLoop = () => {
   inventoryButton.addEventListener('click', () => { handleInventoryModal(inventoryModal, petImageContainer) });
   inventoryCloseButton.addEventListener('click', () => { hideElement(inventoryModal) })
 
+  settingsButton.addEventListener('click', () => { handleSettingsModal(settingsModal, mainGameWindow) });
+  settingsCloseButton.addEventListener('click', () => { hideElement(settingsModal) });
   // Set progress bar decrease
 
   setInterval(() => { reduceStatistic(hungerBar, 1) }, 1000);
   setInterval(() => { reduceStatistic(thirstBar, 1) }, 1000)
-  setInterval(() => { handleLoveInterval(hungerBar, thirstBar, loveCounter)}, 5000);
-};
+  setInterval(() => { handleLoveInterval(hungerBar, thirstBar, loveCounter) }, 5000);
+}
