@@ -51,7 +51,7 @@ export const startGameLoop = () => {
   })
 
   // Handle item modal 
-  inventoryButton.addEventListener('click', () => { handleInventoryModal(inventoryModal) });
+  inventoryButton.addEventListener('click', () => { handleInventoryModal(inventoryModal, petImageContainer) });
   inventoryCloseButton.addEventListener('click', () => { hideElement(inventoryModal) })
 
 };

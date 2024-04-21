@@ -29,7 +29,7 @@
     border-bottom-color: #EAA1B7;
 }
 
-.cotton-candy .button:hover {
+.cotton-candy .button:not(.sold-out):hover {
     color: white;
     border-bottom-color: #BA2C65;
     background: #BA2C65;
@@ -140,7 +140,7 @@
     border-bottom-color: #4AB4DE;
 }
 
-.ocean-breeze .button:hover {
+.ocean-breeze .button:not(.sold-out):hover {
     color: white;
     background: #345DA7;
     border-bottom-color: #345DA7;
