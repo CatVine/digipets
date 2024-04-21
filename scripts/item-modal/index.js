@@ -130,9 +130,10 @@ export const handleEquipItem = (tabButtons, button, sprite) => {
   let itemToUpdate;
 
   if (itemType !== "care") {
-    tabButtons.forEach((button) => {
-      button.classList.remove("equipped");
-      button.textContent = "Equip";
+    const sameTabButtons = tabButtons.filter(button => button.dataset.type === itemType);
+    sameTabButtons.forEach((button) => {
+        button.classList.remove("equipped");
+        button.textContent = "Equip";
     });
   }
 
