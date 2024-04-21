@@ -1,7 +1,8 @@
 import { showElement, hideElement } from "../utils/index.js"
 import { setLoveTotal } from "../love-counter/index.js";
+import { setInventoryItems } from "../item-modal/index.js";
 
-export const handleShopModal = (modal, closeButton) => {
+export const handleShopModal = (modal) => {
     if (!modal.classList.contains('is--active')) {
         showElement(modal);
     } else {
@@ -50,19 +51,19 @@ export const setShopItems = (itemData, modal) => {
 
         switch (tab.id) {
             case "shopCare":
-                listItems = composeItemElements(careItems, 'care');
+                listItems = composeShopElements(careItems, 'care');
                 listItems.forEach((item) => {
                     listContainer.insertAdjacentHTML('beforeend', item);
                 })
                 break;
             case "shopClothing":
-                listItems = composeItemElements(clothingItems, 'clothing');
+                listItems = composeShopElements(clothingItems, 'clothing');
                 listItems.forEach((item) => {
                     listContainer.insertAdjacentHTML('beforeend', item);
                 })
                 break;
             case "shopDecor":
-                listItems = composeItemElements(decorItems, 'decor');
+                listItems = composeShopElements(decorItems, 'decor');
                 listItems.forEach((item) => {
                     listContainer.insertAdjacentHTML('beforeend', item);
                 })
@@ -73,7 +74,7 @@ export const setShopItems = (itemData, modal) => {
     })
 }
 
-export const composeItemElements = (items, type) => {
+export const composeShopElements = (items, type) => {
     const listItems = items.map(item =>
         `<li class="modal__item">
         <img class="modal__item-image" src=${item.image} alt="" />

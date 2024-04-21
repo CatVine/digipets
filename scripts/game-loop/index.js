@@ -4,6 +4,7 @@ import { hideElement, showElement } from "../utils/index.js";
 import { increaseLove, setLoveTotal } from "../love-counter/index.js";
 import { handleShopModal, setShopItems, handleBuyItem } from "../shop-modal/index.js";
 import { items } from "../../assets/data/items.js";
+import { handleInventoryModal, setInventoryItems } from "../item-modal/index.js";
 
 export const startGameLoop = () => {
 
@@ -15,7 +16,9 @@ export const startGameLoop = () => {
   const shopButton = document.querySelector('#shopButton');
   let shopModal = document.querySelector('#shopModal');
   const shopCloseButton = document.querySelector('#shopClose');
-  const itemsButton = document.querySelector('#itemsButton');
+  const inventoryButton = document.querySelector('#itemsButton');
+  let inventoryModal = document.querySelector('#inventoryModal')
+  const inventoryCloseButton = document.querySelector('#inventoryClose');
 
   // Handle loading data and choosing a pet if there is no existing save data
   if (!checkForDataProperty('petChoice')) {
@@ -37,11 +40,17 @@ export const startGameLoop = () => {
 
   // Handle shop modal events
 
-  shopButton.addEventListener('click', () => { handleShopModal(shopModal, shopCloseButton) });
+  shopButton.addEventListener('click', () => { handleShopModal(shopModal) });
   shopCloseButton.addEventListener('click', () => { hideElement(shopModal) })
 
   const itemButtons = [...shopModal.querySelectorAll('.modal__item-button')];
   itemButtons.forEach((button) => {
     button.addEventListener('click', () => { handleBuyItem(button) })
   })
+
+  // Handle item modal 
+console.log(inventoryModal);
+  inventoryButton.addEventListener('click', () => { handleInventoryModal(inventoryModal) });
+  inventoryCloseButton.addEventListener('click', () => { hideElement(inventoryModal) })
+
 };
