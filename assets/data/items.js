@@ -39,6 +39,24 @@ export const items = {
                 "purchased": false ,
                 "equipped": false 
             },
+            {
+                "name": "Hat",
+                "price": 1000 ,
+                "image": "#" ,
+                "description": "A basic hat" ,
+                "id": 1 ,
+                "purchased": false ,
+                "equipped": false 
+            },
+            {
+                "name": "Fun Hat",
+                "price": 2000 ,
+                "image": "#" ,
+                "description": "A fun hat" ,
+                "id": 2 ,
+                "purchased": false ,
+                "equipped": false 
+            },
         ],
         decor: [
             {

@@ -25,7 +25,10 @@ export const handleInventoryModal = (modal) => {
 }
 
 export const switchTab = (tabs, tabPanel, tabButtons, activeTab) => {
-    tabButtons.forEach(button => button.classList.remove('is--active'));
+    tabButtons.forEach(button => { 
+        button.classList.remove('is--active')
+        button.ariaSelected = false;
+});
 
     tabs.forEach((tab) => {
         if (tab === tabPanel) {
@@ -38,6 +41,7 @@ export const switchTab = (tabs, tabPanel, tabButtons, activeTab) => {
     tabButtons.forEach(button => {
         if (button === activeTab) {
             button.classList.add('is--active');
+            button.ariaSelected = true;
         }
     })
 }
