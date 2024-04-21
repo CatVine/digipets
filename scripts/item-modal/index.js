@@ -87,7 +87,7 @@ export const composeInventoryElements = (items, type) => {
         </p>
 
         <button class="modal__item-button button button--small ${item.equipped ? ' equipped' : ''}" data-type="${type}" data-item-id="${item.id}"">
-            ${item.equipped ? 'Equipped' : 'Equip'}
+            ${type === "care" ? "Use" : (item.equipped ? 'Equipped' : 'Equip')}
         </button>
     </li>`
     )
