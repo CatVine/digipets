@@ -188,9 +188,16 @@ select {
     margin-bottom: 12px;
 }
 
+.footer__credits {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .footer__credit,
-.footer__credit-link {
-    font-size: 14px;
+.footer__credit-link, 
+.footer__credit a {
+    font-size: 12px;
+    max-width: 75ch;
 }
 
 /* Game */
@@ -406,6 +413,7 @@ select {
     padding: 2rem;
     position: relative;
     max-height: 450px;
+    min-height: 450px;
     overflow-y: auto;
     flex-grow: 1;
 }
