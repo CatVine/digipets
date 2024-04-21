@@ -5,7 +5,7 @@ export const items = {
             {
                 "name": "Food",
                 "price": 500 ,
-                "image": "#" ,
+                "image": './assets/img/sprites/food.png' ,
                 "description": "Feed your pup!" ,
                 "id": 1 ,
                 "quantity": 0,
@@ -15,8 +15,8 @@ export const items = {
             {
                 "name": "Basic Water",
                 "price": 500 ,
-                "image": "#" ,
-                "description": "Give your pup a drink" ,
+                "image": './assets/img/sprites/water.png' ,
+                "description": "Give your pup a drink!" ,
                 "id": 2,
                 "quantity": 0,
                 "statistic": "thirst",
@@ -25,40 +25,67 @@ export const items = {
         ],
         clothing: [
             {
-                "name": "Hat",
-                "price": 1000 ,
-                "image": "https://i.kym-cdn.com/entries/icons/original/000/032/280/meme1.jpg" ,
-                "description": "A basic hat" ,
+                "name": "Default",
+                "price": 0 ,
+                "image": { option1: './assets/img/sprites/dog-black.png', option2: './assets/img/sprites/dog-yellow.png' },
+                "description": "Nothing fancy!" ,
                 "id": 1 ,
+                "purchased": true ,
+                "equipped": true 
+            },
+            {
+                "name": "Rainbow Hat",
+                "price": 1000 ,
+                "image": { option1: './assets/img/sprites/dog-black--rainbow.png', option2: './assets/img/sprites/dog-yellow--rainbow.png' },
+                "description": "A fun rainbow accessory!" ,
+                "id": 2 ,
                 "purchased": false ,
                 "equipped": false 
             },
             {
-                "name": "Fun Hat",
+                "name": "Halo",
                 "price": 2000 ,
-                "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1VW4T-iL0GevbUd9Z7rDp-WCBMDex0LGxycE1GJVNxBd5Xjj7ErzO14Dq5sPrpPbKNhM&usqp=CAU" ,
-                "description": "A fun hat" ,
-                "id": 2 ,
+                "image":  { option1: './assets/img/sprites/dog-black--angel.png', option2: './assets/img/sprites/dog-yellow--angel.png' } ,
+                "description": "For your little angel!" ,
+                "id": 3 ,
+                "purchased": false ,
+                "equipped": false 
+            },
+            {
+                "name": "Beachwear",
+                "price": 3000 ,
+                "image":  { option1: './assets/img/sprites/dog-black--sun.png', option2: './assets/img/sprites/dog-yellow--sun.png' } ,
+                "description": "For those hot summer days!" ,
+                "id": 4 ,
                 "purchased": false ,
                 "equipped": false 
             },
         ],
         decor: [
             {
-                "name": "Beach",
-                "price": 2000 ,
-                "image": "#" ,
-                "description": "Fun in the sun!" ,
+                "name": "Grass",
+                "price": 0 ,
+                "image": './assets/img/backgrounds/grass.png' ,
+                "description": "A nice field." ,
                 "id": 1,
+                "purchased": true ,
+                "equipped": true 
+            },
+            {
+                "name": "Clouds",
+                "price": 2000 ,
+                "image": './assets/img/backgrounds/sky.png' ,
+                "description": "A heavenly backdrop!" ,
+                "id": 2,
                 "purchased": false ,
                 "equipped": false 
             },
             {
-                "name": "Clouds",
+                "name": "Beach",
                 "price": 3000 ,
-                "image": "#" ,
-                "description": "A heavenly backdrop!" ,
-                "id": 2,
+                "image": './assets/img/backgrounds/beach.png' ,
+                "description": "Fun in the sun!" ,
+                "id": 3,
                 "purchased": false ,
                 "equipped": false 
             },
