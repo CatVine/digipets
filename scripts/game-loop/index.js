@@ -1,10 +1,11 @@
 import { petSelect, setPetSprite } from "../pet-select/index.js";
 import { checkForDataProperty } from "../utils/index.js";
 import { hideElement, showElement } from "../utils/index.js";
-import { increaseLove, setLoveTotal } from "../love-counter/index.js";
+import { handleLoveInterval, increaseLove, setLoveTotal } from "../love-counter/index.js";
 import { handleShopModal, setShopItems, handleBuyItem } from "../shop-modal/index.js";
 import { items } from "../../assets/data/items.js";
 import { handleEquipItem, handleInventoryModal, setInventoryItems } from "../item-modal/index.js";
+import { setStatistic, reduceStatistic } from "../statistic-bars/index.js";
 
 export const startGameLoop = () => {
 
@@ -19,17 +20,21 @@ export const startGameLoop = () => {
   const inventoryButton = document.querySelector('#itemsButton');
   let inventoryModal = document.querySelector('#inventoryModal')
   const inventoryCloseButton = document.querySelector('#inventoryClose');
+  const hungerBar = document.querySelector('#hunger');
+  const thirstBar = document.querySelector('#thirst');
 
   // Handle loading data and choosing a pet if there is no existing save data
   if (!checkForDataProperty('petChoice')) {
     petSelect(petImageContainer, mainGameWindow);
     setShopItems(items.data, shopModal);
-    setLoveTotal(0, loveCounter)
+    setLoveTotal(0, loveCounter);
   } else {
     setPetSprite(petImageContainer);
     setLoveTotal(localData.loveTotal, loveCounter);
+    setStatistic(localData.hunger, hungerBar);
+    setStatistic(localData.thirst, thirstBar);
     setShopItems(JSON.parse(localData.items), shopModal);
-    setInventoryItems(JSON.parse(localStorage.getItem('items')), inventoryModal);
+    setInventoryItems(JSON.parse(localData.items), inventoryModal);
     shopModal = document.querySelector('#shopModal');
     showElement(mainGameWindow);
   }
@@ -51,7 +56,12 @@ export const startGameLoop = () => {
   })
 
   // Handle item modal 
-  inventoryButton.addEventListener('click', () => { handleInventoryModal(inventoryModal) });
+  inventoryButton.addEventListener('click', () => { handleInventoryModal(inventoryModal, petImageContainer) });
   inventoryCloseButton.addEventListener('click', () => { hideElement(inventoryModal) })
 
+  // Set progress bar decrease
+
+  setInterval(() => { reduceStatistic(hungerBar, 1) }, 1000);
+  setInterval(() => { reduceStatistic(thirstBar, 1) }, 1000)
+  setInterval(() => { handleLoveInterval(hungerBar, thirstBar, loveCounter)}, 5000);
 };

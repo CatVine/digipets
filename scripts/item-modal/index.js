@@ -1,11 +1,11 @@
+import { increaseStatistic } from "../statistic-bars/index.js";
 import { showElement, hideElement } from "../utils/index.js"
 
-export const handleInventoryModal = (modal) => {
+export const handleInventoryModal = (modal, petImageContainer) => {
     setInventoryItems(JSON.parse(localStorage.getItem('items')), modal);
-
     const inventoryItemButtons = [...modal.querySelectorAll('.modal__item-button')];
     inventoryItemButtons.forEach((button) => {
-        button.addEventListener('click', () => { handleEquipItem(inventoryItemButtons, button) })
+        button.addEventListener('click', () => { handleEquipItem(inventoryItemButtons, button, petImageContainer) })
     })
 
     if (!modal.classList.contains('is--active')) {
@@ -105,7 +105,7 @@ export const composeInventoryElements = (items, type) => {
     return listItems;
 }
 
-export const handleEquipItem = (tabButtons, button) => {
+export const handleEquipItem = (tabButtons, button, sprite) => {
     const itemType = button.dataset.type;
     const itemId = Number(button.dataset.itemId);
     let currentItems = JSON.parse(localStorage.getItem('items'));
@@ -133,10 +133,21 @@ export const handleEquipItem = (tabButtons, button) => {
     if (itemToUpdate) {
         switch (itemType) {
             case 'care':
-                itemToUpdate.quantity -= 1;
+                const increaseValue = itemToUpdate.replenishValue;
+                const statisticType = itemToUpdate.statistic;
+                const relevantStatisticBar = document.querySelector(`#${statisticType}`);
+                if (itemToUpdate.quantity > 0) {
+                    itemToUpdate.quantity -= 1;
+                    increaseStatistic(relevantStatisticBar, increaseValue);
+                };
+                if (itemToUpdate.quantity === 0) {
+                    button.classList.add('disabled');
+                    button.textContent = 'None';
+                }
                 break;
             default:
                 itemToUpdate.equipped = true;
+                sprite.src = itemToUpdate.image;
                 button.classList.add('equipped');
                 button.textContent = 'Equipped';
         }

@@ -1,4 +1,5 @@
 import { showElement, hideElement } from "../utils/index.js";
+import { setStatistic } from "../statistic-bars/index.js";
 
 export const petSelect = (petImageContainer, mainGameWindow) => {
     const selectScreen = document.querySelector('#petSelect');
@@ -12,6 +13,8 @@ export const petSelect = (petImageContainer, mainGameWindow) => {
             localStorage.setItem('petChoice', petImage.src);
 
             setPetSprite(petImageContainer);
+            setStatistic(100, hungerBar);
+            setStatistic(100, thirstBar);
             hideElement(selectScreen);
             showElement(mainGameWindow);
         })

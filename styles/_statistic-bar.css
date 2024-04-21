@@ -32,28 +32,22 @@ progress[value] {
     padding: 3px;
   }
 
-  progress[value][data-statistic="Happiness"]::-webkit-progress-value {
-    border-radius: 10em;
-    background: lightcoral;
-  }
-  progress[value][data-statistic="Thirst"]::-webkit-progress-value {
+  progress[value][id="thirst"]::-webkit-progress-value {
     border-radius: 10em;
     background: cornflowerblue;
   }
-  progress[value][data-statistic="Hunger"]::-webkit-progress-value {
+  
+  progress[value][id="hunger"]::-webkit-progress-value {
     border-radius: 10em;
-    background: lightgreen;
+    background: lightcoral;
   }
 
-  progress[value][data-statistic="Happiness"]::-moz-progress-bar {
-    border-radius: 10em;
-    background: lightcoral;
-  }
-  progress[value][data-statistic="Thirst"]::-moz-progress-bar {
+  progress[value][id="thirst"]::-moz-progress-bar {
     border-radius: 10em;
     background: cornflowerblue;
   }
-  progress[value][data-statistic="Hunger"]::-moz-progress-bar {
+
+  progress[value][id="hunger"]::-moz-progress-bar {
     border-radius: 10em;
-    background: lightgreen;
+    background: lightcoral;
   }

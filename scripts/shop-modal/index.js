@@ -98,7 +98,7 @@ export const composeShopElements = (items, type) => {
             ${item.description}
         </p>
 
-        <button class="modal__item-button button button--small ${item.purchased ? ' sold-out' : ''}" data-type="${type}" data-item-id="${item.id}" data-item-price="${item.price} ">
+        <button class="modal__item-button button button--small ${item.purchased ? ' disabled' : ''}" data-type="${type}" data-item-id="${item.id}" data-item-price="${item.price} ">
             ${item.purchased ? 'Sold Out' : 'Buy'}
         </button>
     </li>`
@@ -132,7 +132,7 @@ export const handleBuyItem = (button) => {
                     break;
                 default:
                     itemToUpdate.purchased = true;
-                    button.classList.add('sold-out');
+                    button.classList.add('disabled');
                     button.textContent = 'Sold out';
             }
         }
