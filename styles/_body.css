@@ -20,18 +20,9 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-    background: #EAA1B7;
-    /* -webkit-box-shadow: inset 0 0 6px     rgba(0,0,0,0.3);  */
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: white;
     border-radius: 10px;
-    /* -webkit-box-shadow: inset 0 0 6px     rgba(0,0,0,0.5);  */
 }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #BA2C65;
-  }

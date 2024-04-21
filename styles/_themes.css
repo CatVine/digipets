@@ -89,6 +89,26 @@
     color: white;
 }
 
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    margin:20px;
+    padding: 20px;
+}
+
+.cotton-candy ::-webkit-scrollbar-track {
+    background: #EAA1B7;
+}
+
+.cotton-candy ::-webkit-scrollbar-thumb {
+    background: white;
+}
+  
+  /* Handle on hover */
+  .cotton-candy ::-webkit-scrollbar-thumb:hover {
+    background: #BA2C65;
+  }
+
 /* Ocean Breeze */
 
 .ocean-breeze body {
@@ -179,3 +199,16 @@
     background: #345DA7;
     color: white;
 }
+
+.ocean-breeze ::-webkit-scrollbar-track {
+    background: #4AB4DE;
+}
+
+.ocean-breeze ::-webkit-scrollbar-thumb {
+    background: white;
+}
+  
+  /* Handle on hover */
+  .ocean-breeze ::-webkit-scrollbar-thumb:hover {
+    background: #345DA7;
+  }
