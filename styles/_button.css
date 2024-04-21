@@ -28,4 +28,8 @@
     .button__text {
         display: none;
     }
+
+    .button {
+        padding: 12px 14px;
+    }
 }

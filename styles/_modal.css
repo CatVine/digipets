@@ -28,7 +28,8 @@
     background: white;
     padding: 2rem;
     position: relative;
-    max-height: 380px;
+    min-height: 365px;
+    max-height: 365px;
     overflow-y: auto;
 }
 
