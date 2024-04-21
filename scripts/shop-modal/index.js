@@ -11,7 +11,7 @@ export const handleShopModal = (modal) => {
     });
   });
   
-  if (!modal.classList.contains("is--active")) {
+  if (modal.classList.contains("is--hidden")) {
     showElement(modal);
   } else {
     hideElement(modal);

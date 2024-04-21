@@ -1,18 +1,24 @@
 import { increaseStatistic } from "../statistic-bars/index.js";
 import { showElement, hideElement } from "../utils/index.js";
+import { toggleSound } from "../settings/index.js";
 
 export const handleInventoryModal = (modal, petImageContainer) => {
   setInventoryItems(JSON.parse(localStorage.getItem("items")), modal);
+  const soundOn = localStorage.getItem('sound');
+
   const inventoryItemButtons = [
     ...modal.querySelectorAll(".modal__item-button"),
   ];
   inventoryItemButtons.forEach((button) => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (e) => {
       handleEquipItem(inventoryItemButtons, button, petImageContainer);
+      if (soundOn) {
+        toggleSound(e);
+      }
     });
   });
 
-  if (!modal.classList.contains("is--active")) {
+  if (modal.classList.contains("is--hidden")) {
     showElement(modal);
   } else {
     hideElement(modal);
