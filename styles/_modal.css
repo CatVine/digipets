@@ -28,8 +28,8 @@
     background: white;
     padding: 2rem;
     position: relative;
-    min-height: 365px;
-    max-height: 365px;
+    min-height: 550px;
+    max-height: 550px;
     overflow-y: auto;
     flex-grow:1;
 }
