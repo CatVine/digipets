@@ -25,6 +25,7 @@
     display: none;
     background: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .mobile-nav__button svg {

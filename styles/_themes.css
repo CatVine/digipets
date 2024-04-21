@@ -41,3 +41,40 @@
 .cotton-candy .game__option-container {
     border: 5px solid #BA2C65;
 }
+
+.cotton-candy .modal__content {
+    border: 5px solid #EAA1B7;
+}
+
+.cotton-candy .modal__tab {
+    border-color: #EAA1B7
+}
+
+.cotton-candy .modal__tabs {
+    border-color: #EAA1B7
+}
+
+.cotton-candy .modal__tab-button:hover {
+    background: #EAA1B7;
+}
+
+.cotton-candy .modal__tab-button.is--active {
+    background: #EAA1B7;
+}
+
+.cotton-candy .modal__item {
+    background: #EAA1B7;
+}
+
+.cotton-candy .modal__close-button {
+    border-color: #EAA1B7;
+}
+
+.cotton-candy .modal__close-button:hover {
+    border-color: #BA2C65;
+}
+
+.cotton-candy .modal__item-button.equipped {
+    background: #BA2C65;
+    color: white;
+}

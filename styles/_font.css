@@ -3,7 +3,7 @@
     src: url('../assets/font/Diary\ of\ an\ 8-bit\ mage.woff');
 }
   
-body {
+body, button, input, select {
     font-family: DiaryOfAn8BitMage;
     letter-spacing: 1px;
 }
