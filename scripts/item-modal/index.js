@@ -3,6 +3,11 @@ import { showElement, hideElement } from "../utils/index.js"
 export const handleInventoryModal = (modal) => {
     setInventoryItems(JSON.parse(localStorage.getItem('items')), modal);
 
+    const inventoryItemButtons = [...modal.querySelectorAll('.modal__item-button')];
+    inventoryItemButtons.forEach((button) => {
+        button.addEventListener('click', () => { handleEquipItem(inventoryItemButtons, button) })
+    })
+
     if (!modal.classList.contains('is--active')) {
         showElement(modal);
     } else {
@@ -46,6 +51,7 @@ export const setInventoryItems = (itemData, modal) => {
 
     inventoryTabs.forEach((tab) => {
         const listContainer = tab.querySelector('ul');
+        listContainer.innerHTML = '';
         let listItems;
 
         switch (tab.id) {
@@ -95,37 +101,41 @@ export const composeInventoryElements = (items, type) => {
     return listItems;
 }
 
-// export const handleBuyItem = (button) => {
-//     const itemType = button.dataset.type;
-//     const itemId = Number(button.dataset.itemId);
-//     const itemPrice = Number(button.dataset.itemPrice);
-//     const currentLove = localStorage.getItem('loveTotal');
-//     const loveElement = document.querySelector('#loveCounter');
-//     let currentItems = JSON.parse(localStorage.getItem('items'));
+export const handleEquipItem = (tabButtons, button) => {
+    const itemType = button.dataset.type;
+    const itemId = Number(button.dataset.itemId);
+    let currentItems = JSON.parse(localStorage.getItem('items'));
 
-//     if (currentLove > itemPrice) {
-//         setLoveTotal((currentLove - itemPrice), loveElement);
+    let itemCategory = currentItems[itemType];
+    let itemToUpdate;
 
-//         let itemCategory = currentItems[itemType];
-//         let itemToUpdate;
-//         itemCategory.forEach((item) => {
-//             if (item.id === itemId) {
-//                 itemToUpdate = item;
-//             }
-//         })
-//         if (itemToUpdate) {
-//             switch (itemType) {
-//                 case 'care':
-//                     itemToUpdate.quantity += 1;
-//                     break;
-//                 default:
-//                     itemToUpdate.purchased = true;
-//                     button.classList.add('sold-out');
-//                     button.textContent = 'Sold out';
-//             }
-//         }
-//         localStorage.setItem('items', JSON.stringify(currentItems));
-//     } else {
-//         console.log('not enough love!')
-//     }
-// }
+    if (itemType !== 'care') {
+        tabButtons.forEach((button) => {
+            button.classList.remove('equipped');
+            button.textContent = 'Equip';
+        })
+    }
+
+    itemCategory.forEach((item) => {
+        if ((itemType !== 'care')) {
+            item.equipped = false;
+        }
+
+        if (item.id === itemId) {
+            itemToUpdate = item;
+        }
+    })
+    
+    if (itemToUpdate) {
+        switch (itemType) {
+            case 'care':
+                itemToUpdate.quantity -= 1;
+                break;
+            default:
+                itemToUpdate.equipped = true;
+                button.classList.add('equipped');
+                button.textContent = 'Equipped';
+        }
+    }
+    localStorage.setItem('items', JSON.stringify(currentItems));
+} 
