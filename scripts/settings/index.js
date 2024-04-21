@@ -27,7 +27,6 @@ export const setSound = (soundOn, window, toggle) => {
     if (soundOn == "true") {
         buttons.forEach((button) => {
             button.addEventListener('click', toggleSound)
-            console.log(button);
         })
         bgMusicPlayer.play();
         toggle.checked = true;
