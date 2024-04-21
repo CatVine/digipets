@@ -7,10 +7,11 @@ export const increaseLove = (amount, counterElement) => {
 }
 
 export const setLoveTotal = (total, element) => {
-    element.textContent = total;
-    localStorage.setItem('loveTotal', total)
-
-    if (total === undefined) {
+    if (total === undefined || total === NaN) {
         element.textContent = 0;
+        localStorage.setItem('loveTotal', 0)
+    } else {
+        element.textContent = total;
+        localStorage.setItem('loveTotal', total)
     }
 }

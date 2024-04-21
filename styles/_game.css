@@ -1,8 +1,9 @@
 .game__container {
-    border: 5px solid #BA2C65;
-    border-radius: 25px;
+    border: 5px solid transparent;
+    border-radius: 10px;
     height: 100%;
     background: lightblue; 
+    min-height: 70vh;
 }
 
 .game__screen {
@@ -53,6 +54,12 @@
     padding: 1.5rem;
     border-radius: 25px;
     position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .game__main {
+        position: static;
+    }
 }
 
 .game__main-top {

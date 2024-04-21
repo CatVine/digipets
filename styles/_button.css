@@ -23,3 +23,13 @@
     justify-content: center;
     padding: 8px 20px;
 }
+
+@media screen and (max-width:768px) {
+    .button__text {
+        display: none;
+    }
+
+    .button {
+        padding: 12px 14px;
+    }
+}

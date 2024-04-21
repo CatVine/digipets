@@ -48,6 +48,10 @@
     border: 5px solid #BA2C65;
 }
 
+.cotton-candy .game__container {
+    border-color: #BA2C65;
+}
+
 .cotton-candy .modal__content {
     border: 5px solid #EAA1B7;
 }
@@ -133,6 +137,10 @@
 
 .ocean-breeze .game__option-container {
     border: 5px solid #345DA7;
+}
+
+.ocean-breeze .game__container {
+    border-color: #345DA7;
 }
 
 .ocean-breeze .modal__content {

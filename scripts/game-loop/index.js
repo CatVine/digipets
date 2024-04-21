@@ -24,6 +24,7 @@ export const startGameLoop = () => {
   if (!checkForDataProperty('petChoice')) {
     petSelect(petImageContainer, mainGameWindow);
     setShopItems(items.data, shopModal);
+    setLoveTotal(0, loveCounter)
   } else {
     setPetSprite(petImageContainer);
     setLoveTotal(localData.loveTotal, loveCounter);

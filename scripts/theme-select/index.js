@@ -7,7 +7,7 @@ export const handleThemeSelect = (event) => {
 export const setTheme = (value) => {
     const html = document.querySelector('html');
     html.classList = '';
-    if (value === '') {
+    if (value === '' || value === null) {
         html.classList.add('cotton-candy');
     } else {
         html.classList.add(value);

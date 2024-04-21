@@ -1,11 +1,20 @@
 .statistic-bar__list {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 
-.statistic-bar__item {}
+.statistic-bar__item {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
 
+@media screen and (max-width:768px) {
+  .statistic-bar__item  {
+      flex-direction: column;
+  }
+}
 
 progress[value] {
     -webkit-appearance: none;
@@ -13,7 +22,6 @@ progress[value] {
     appearance: none;
     border: none;
     width: 150px;
-    margin-left: 12px;
     border-radius: 10px;
     background: white;
   }
