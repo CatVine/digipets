@@ -3,9 +3,10 @@ import { checkForDataProperty } from "../utils/index.js";
 import { hideElement, showElement } from "../utils/index.js";
 import { handleLoveInterval, increaseLove, setLoveTotal } from "../love-counter/index.js";
 import { handleShopModal, setShopItems, handleBuyItem } from "../shop-modal/index.js";
-import { items } from "../../assets/data/items.js";
 import { handleEquipItem, handleInventoryModal, setInventoryItems } from "../item-modal/index.js";
 import { setStatistic, reduceStatistic } from "../statistic-bars/index.js";
+import { items } from "../../assets/data/items.js"; 
+import { setBackgroundImage, setEquippedItem } from "../item-modal/index.js";
 
 export const startGameLoop = () => {
 
@@ -22,19 +23,23 @@ export const startGameLoop = () => {
   const inventoryCloseButton = document.querySelector('#inventoryClose');
   const hungerBar = document.querySelector('#hunger');
   const thirstBar = document.querySelector('#thirst');
+  const defaultBGImage = items.data.decor.find(item => item.equipped === true).image;
 
   // Handle loading data and choosing a pet if there is no existing save data
   if (!checkForDataProperty('petChoice')) {
-    petSelect(petImageContainer, mainGameWindow);
-    setShopItems(items.data, shopModal);
+    petSelect(petImageContainer, mainGameWindow, hungerBar, thirstBar);
+    setBackgroundImage(mainGameWindow, defaultBGImage);
     setLoveTotal(0, loveCounter);
   } else {
+    const petType = JSON.parse(localStorage.getItem('petChoice')).name;
     setPetSprite(petImageContainer);
     setLoveTotal(localData.loveTotal, loveCounter);
     setStatistic(localData.hunger, hungerBar);
     setStatistic(localData.thirst, thirstBar);
     setShopItems(JSON.parse(localData.items), shopModal);
     setInventoryItems(JSON.parse(localData.items), inventoryModal);
+    setBackgroundImage(mainGameWindow, JSON.parse(localData.items).decor.find(item => item.equipped === true).image);
+    setEquippedItem(petImageContainer, JSON.parse(localData.items).clothing.find(item => item.equipped === true).image[petType]);
     shopModal = document.querySelector('#shopModal');
     showElement(mainGameWindow);
   }
@@ -49,11 +54,6 @@ export const startGameLoop = () => {
 
   shopButton.addEventListener('click', () => { handleShopModal(shopModal) });
   shopCloseButton.addEventListener('click', () => { hideElement(shopModal) })
-
-  const shopItemButtons = [...shopModal.querySelectorAll('.modal__item-button')];
-  shopItemButtons.forEach((button) => {
-    button.addEventListener('click', () => { handleBuyItem(button) })
-  })
 
   // Handle item modal 
   inventoryButton.addEventListener('click', () => { handleInventoryModal(inventoryModal, petImageContainer) });

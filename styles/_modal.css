@@ -101,8 +101,10 @@
 }
 
 .modal__item-image {
-    height: 100px;
-    width: 120px;
+    height:150px;
+    width: 150px;
+    object-fit: cover;
+    align-self: center;
     background: white;
     border-radius: 20px;
     margin-bottom: 5px;
