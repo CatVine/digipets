@@ -1,7 +1,7 @@
 import { petSelect, setPetSprite } from "../pet-select/index.js";
 import { checkForDataProperty } from "../utils/index.js";
 import { hideElement, showElement } from "../utils/index.js";
-import { increaseLove, setLoveTotal } from "../love-counter/index.js";
+import { handleLoveInterval, increaseLove, setLoveTotal } from "../love-counter/index.js";
 import { handleShopModal, setShopItems, handleBuyItem } from "../shop-modal/index.js";
 import { items } from "../../assets/data/items.js";
 import { handleEquipItem, handleInventoryModal, setInventoryItems } from "../item-modal/index.js";
@@ -65,4 +65,5 @@ export const startGameLoop = () => {
 
   setInterval(() => { reduceStatistic(hungerBar, 1) }, 1000);
   setInterval(() => { reduceStatistic(thirstBar, 1) }, 1000)
+  setInterval(() => { handleLoveInterval(hungerBar, thirstBar, loveCounter)}, 5000);
 };

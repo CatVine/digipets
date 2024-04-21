@@ -15,3 +15,19 @@ export const setLoveTotal = (total, element) => {
         localStorage.setItem('loveTotal', total)
     }
 }
+
+export const handleLoveInterval = (statistic1, statistic2, counterElement) => {
+    const statisticTotal = statistic1.value + statistic2.value;
+    const statisticAverage = statisticTotal / 2;
+
+    switch (true) {
+        case (statisticAverage > 50):
+            increaseLove(100, counterElement);
+            break;
+        case (0 < statisticAverage < 50 ):
+            increaseLove(50, counterElement);
+            break;
+        default:
+            break;
+    }
+}
