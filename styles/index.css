@@ -420,6 +420,7 @@ select {
 
 .modal--small .modal__content {
     padding: 6rem 2rem;
+    min-height: 0;
 }
 
 .modal__content-inner {
