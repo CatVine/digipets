@@ -73,3 +73,8 @@
 .cotton-candy .modal__close-button:hover {
     border-color: #BA2C65;
 }
+
+.cotton-candy .modal__item-button.equipped {
+    background: #BA2C65;
+    color: white;
+}
