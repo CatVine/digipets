@@ -1,83 +1,99 @@
-import { showElement, hideElement } from "../utils/index.js"
+import { showElement, hideElement } from "../utils/index.js";
 import { setLoveTotal } from "../love-counter/index.js";
 import { setInventoryItems } from "../item-modal/index.js";
 
 export const handleShopModal = (modal) => {
-    if (!modal.classList.contains('is--active')) {
-        showElement(modal);
-    } else {
-        hideElement(modal);
-    }
+  const shopItemButtons = [...modal.querySelectorAll(".modal__item-button")];
 
-    const shopTabButtons = [...modal.querySelectorAll('.modal__tab-button')];
-    const shopTabs = [...modal.querySelectorAll('.modal__tab-panel')];
+  shopItemButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      handleBuyItem(button);
+    });
+  });
+  
+  if (!modal.classList.contains("is--active")) {
+    showElement(modal);
+  } else {
+    hideElement(modal);
+  }
 
-    shopTabButtons.forEach((button) => {
-        const associatedTabPanel = shopTabs.filter((tab) => tab.id === button.dataset.toggle)[0];
+  const shopTabButtons = [...modal.querySelectorAll(".modal__tab-button")];
+  const shopTabs = [...modal.querySelectorAll(".modal__tab-panel")];
 
-        button.addEventListener('click', () => { switchTab(shopTabs, associatedTabPanel, shopTabButtons, button) })
-    })
-}
+  shopTabButtons.forEach((button) => {
+    const associatedTabPanel = shopTabs.filter(
+      (tab) => tab.id === button.dataset.toggle
+    )[0];
+
+    button.addEventListener("click", () => {
+      switchTab(shopTabs, associatedTabPanel, shopTabButtons, button);
+    });
+  });
+};
 
 export const switchTab = (tabs, tabPanel, tabButtons, activeTab) => {
-    tabButtons.forEach(button => button.classList.remove('is--active'));
+  tabButtons.forEach((button) => button.classList.remove("is--active"));
 
-    tabs.forEach((tab) => {
-        if (tab === tabPanel) {
-            showElement(tab);
-        } else {
-            hideElement(tab);
-        }
-    })
+  tabs.forEach((tab) => {
+    if (tab === tabPanel) {
+      showElement(tab);
+    } else {
+      hideElement(tab);
+    }
+  });
 
-    tabButtons.forEach(button => {
-        if (button === activeTab) {
-            button.classList.add('is--active');
-        }
-    })
-}
+  tabButtons.forEach((button) => {
+    if (button === activeTab) {
+      button.classList.add("is--active");
+    }
+  });
+};
 
 export const setShopItems = (itemData, modal) => {
-    const careItems = itemData.care;
-    const clothingItems = itemData.clothing;
-    const decorItems = itemData.decor;
-    localStorage.setItem('items', JSON.stringify(itemData));
+  const careItems = itemData.care;
+  const clothingItems = itemData.clothing;
+  const decorItems = itemData.decor;
+  localStorage.setItem("items", JSON.stringify(itemData));
 
-    const shopTabs = [...modal.querySelectorAll('.modal__tab-panel')];
+  const shopTabs = [...modal.querySelectorAll(".modal__tab-panel")];
 
-    shopTabs.forEach((tab) => {
-        const listContainer = tab.querySelector('ul');
-        let listItems;
+  shopTabs.forEach((tab) => {
+    const listContainer = tab.querySelector("ul");
+    let listItems;
 
-        switch (tab.id) {
-            case "shopCare":
-                listItems = composeShopElements(careItems, 'care');
-                listItems.forEach((item) => {
-                    listContainer.insertAdjacentHTML('beforeend', item);
-                })
-                break;
-            case "shopClothing":
-                listItems = composeShopElements(clothingItems, 'clothing');
-                listItems.forEach((item) => {
-                    listContainer.insertAdjacentHTML('beforeend', item);
-                })
-                break;
-            case "shopDecor":
-                listItems = composeShopElements(decorItems, 'decor');
-                listItems.forEach((item) => {
-                    listContainer.insertAdjacentHTML('beforeend', item);
-                })
-                break;
-            default:
-                break;
-        }
-    })
-}
+    switch (tab.id) {
+      case "shopCare":
+        listItems = composeShopElements(careItems, "care");
+        listItems.forEach((item) => {
+          listContainer.insertAdjacentHTML("beforeend", item);
+        });
+        break;
+      case "shopClothing":
+        listItems = composeShopElements(clothingItems, "clothing");
+        listItems.forEach((item) => {
+          listContainer.insertAdjacentHTML("beforeend", item);
+        });
+        break;
+      case "shopDecor":
+        listItems = composeShopElements(decorItems, "decor");
+        listItems.forEach((item) => {
+          listContainer.insertAdjacentHTML("beforeend", item);
+        });
+        break;
+      default:
+        break;
+    }
+  });
+};
 
 export const composeShopElements = (items, type) => {
-    const listItems = items.map(item =>
-        `<li class="modal__item">
-        <img class="modal__item-image" src=${item.image} alt="" />
+  const petChoice = JSON.parse(localStorage.getItem("petChoice")).name;
+  const listItems = items.map(
+    (item) =>
+      `<li class="modal__item">
+        <img class="modal__item-image" src=${
+          !(type === "clothing") ? item.image : item.image[petChoice]
+        } alt="" />
 
         <div class="modal__item-information">
             <p class="modal__item-name">${item.name}</p>
@@ -98,46 +114,51 @@ export const composeShopElements = (items, type) => {
             ${item.description}
         </p>
 
-        <button class="modal__item-button button button--small ${item.purchased ? ' disabled' : ''}" data-type="${type}" data-item-id="${item.id}" data-item-price="${item.price} ">
-            ${item.purchased ? 'Sold Out' : 'Buy'}
+        <button class="modal__item-button button button--small ${
+          item.purchased ? " disabled" : ""
+        }" data-type="${type}" data-item-id="${item.id}" data-item-price="${
+        item.price
+      } ">
+            ${item.purchased ? "Sold Out" : "Buy"}
         </button>
     </li>`
-    )
+  );
 
-    return listItems;
-}
+  return listItems;
+};
 
 export const handleBuyItem = (button) => {
-    const itemType = button.dataset.type;
-    const itemId = Number(button.dataset.itemId);
-    const itemPrice = Number(button.dataset.itemPrice);
-    const currentLove = localStorage.getItem('loveTotal');
-    const loveElement = document.querySelector('#loveCounter');
-    let currentItems = JSON.parse(localStorage.getItem('items'));
+  console.log("hello");
+  const itemType = button.dataset.type;
+  const itemId = Number(button.dataset.itemId);
+  const itemPrice = Number(button.dataset.itemPrice);
+  const currentLove = localStorage.getItem("loveTotal");
+  const loveElement = document.querySelector("#loveCounter");
+  let currentItems = JSON.parse(localStorage.getItem("items"));
 
-    if (currentLove > itemPrice) {
-        setLoveTotal((currentLove - itemPrice), loveElement);
+  if (currentLove > itemPrice) {
+    setLoveTotal(currentLove - itemPrice, loveElement);
 
-        let itemCategory = currentItems[itemType];
-        let itemToUpdate;
-        itemCategory.forEach((item) => {
-            if (item.id === itemId) {
-                itemToUpdate = item;
-            }
-        })
-        if (itemToUpdate) {
-            switch (itemType) {
-                case 'care':
-                    itemToUpdate.quantity += 1;
-                    break;
-                default:
-                    itemToUpdate.purchased = true;
-                    button.classList.add('disabled');
-                    button.textContent = 'Sold out';
-            }
-        }
-        localStorage.setItem('items', JSON.stringify(currentItems));
-    } else {
-        console.log('not enough love!')
+    let itemCategory = currentItems[itemType];
+    let itemToUpdate;
+    itemCategory.forEach((item) => {
+      if (item.id === itemId) {
+        itemToUpdate = item;
+      }
+    });
+    if (itemToUpdate) {
+      switch (itemType) {
+        case "care":
+          itemToUpdate.quantity += 1;
+          break;
+        default:
+          itemToUpdate.purchased = true;
+          button.classList.add("disabled");
+          button.textContent = "Sold out";
+      }
     }
-}
+    localStorage.setItem("items", JSON.stringify(currentItems));
+  } else {
+    console.log("not enough love!");
+  }
+};
