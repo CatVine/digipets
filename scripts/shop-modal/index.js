@@ -128,7 +128,6 @@ export const composeShopElements = (items, type) => {
 };
 
 export const handleBuyItem = (button) => {
-  console.log("hello");
   const itemType = button.dataset.type;
   const itemId = Number(button.dataset.itemId);
   const itemPrice = Number(button.dataset.itemPrice);
@@ -136,7 +135,7 @@ export const handleBuyItem = (button) => {
   const loveElement = document.querySelector("#loveCounter");
   let currentItems = JSON.parse(localStorage.getItem("items"));
 
-  if (currentLove > itemPrice) {
+  if (currentLove >= itemPrice) {
     setLoveTotal(currentLove - itemPrice, loveElement);
 
     let itemCategory = currentItems[itemType];
