@@ -121,7 +121,7 @@ a {
     background: white;
     padding: 8px 12px;
     border-radius: 10px;
-    border: none;
+    border: 1px solid transparent;
     border-bottom: 4px solid transparent;
     cursor: pointer;
     transition: 0.2s all;
@@ -188,9 +188,16 @@ select {
     margin-bottom: 12px;
 }
 
+.footer__credits {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .footer__credit,
-.footer__credit-link {
-    font-size: 14px;
+.footer__credit-link, 
+.footer__credit a {
+    font-size: 12px;
+    max-width: 75ch;
 }
 
 /* Game */
@@ -201,6 +208,7 @@ select {
     height: 100%;
     background: lightblue;
     min-height: 70vh;
+    position: relative;
 }
 
 .game__screen {
@@ -404,10 +412,28 @@ select {
     background: white;
     padding: 2rem;
     position: relative;
-    min-height: 550px;
-    max-height: 550px;
+    max-height: 450px;
+    min-height: 450px;
     overflow-y: auto;
     flex-grow: 1;
+}
+
+.modal--small .modal__content {
+    padding: 6rem 2rem;
+}
+
+.modal__content-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+}
+
+.modal__content-inner > *:not(:last-child) {
+    margin-bottom: 24px;
 }
 
 @media screen and (max-width:768px) {
@@ -417,12 +443,12 @@ select {
         position: fixed;
     }
 
-    .modal__container,
-    .modal__content {
+    .modal:not(.modal--small) .modal__container,
+    .modal:not(.modal--small) .modal__content {
         padding: 1rem;
     }
 
-    .modal__content {
+    .modal:not(.modal--small) .modal__content {
         padding-top: 3rem;
         width: 100%;
         height: 100%;
@@ -610,7 +636,7 @@ progress[value] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border: none;
+    border: 1px solid transparent;
     width: 150px;
     border-radius: 10px;
     background: white;
@@ -672,12 +698,12 @@ progress[value][id="hunger"]::-moz-progress-bar {
 }
 
 .cotton-candy .button {
-    border-bottom-color: #EAA1B7;
+    border-color: #EAA1B7;
 }
 
 .cotton-candy .button:not(.disabled):hover {
     color: white;
-    border-bottom-color: #BA2C65;
+    border-color: #BA2C65;
     background: #BA2C65;
 }
 
@@ -735,6 +761,10 @@ progress[value][id="hunger"]::-moz-progress-bar {
     color: white;
 }
 
+.cotton-candy progress[value] {
+    border: 2px solid #BA2C65;
+}
+
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -783,13 +813,13 @@ progress[value][id="hunger"]::-moz-progress-bar {
 }
 
 .ocean-breeze .button {
-    border-bottom-color: #4AB4DE;
+    border-color: #4AB4DE;
 }
 
 .ocean-breeze .button:not(.disabled):hover {
     color: white;
     background: #345DA7;
-    border-bottom-color: #345DA7;
+    border-color: #345DA7;
 }
 
 .ocean-breeze .button:hover path,
@@ -843,6 +873,11 @@ progress[value][id="hunger"]::-moz-progress-bar {
 
 .ocean-breeze .modal__item-button.equipped {
     background: #345DA7;
+    color: white;
+}
+
+.ocean-breeze progress[value] {
+    border: 2px solid #345DA7;
     color: white;
 }
 
