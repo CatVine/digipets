@@ -250,6 +250,7 @@ select {
     background: lightblue;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     padding: 1.5rem;
     border-radius: 5px;
     position: relative;
