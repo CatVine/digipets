@@ -19,6 +19,13 @@ export const handleSettingsModal = (modal, window) => {
             setSound("false", window, sound);
         }
     })
+
+    deleteDataButton.addEventListener('click', deleteData);
+}
+
+export const deleteData = () => {
+    localStorage.clear();
+    location.reload();
 }
 
 export const setSound = (soundOn, window, toggle) => {
