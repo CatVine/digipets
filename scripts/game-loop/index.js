@@ -28,8 +28,6 @@ export const startGameLoop = () => {
     petSelect(petImageContainer, mainGameWindow);
     setShopItems(items.data, shopModal);
     setLoveTotal(0, loveCounter);
-    setStatistic(100, hungerBar);
-    setStatistic(100, thirstBar);
   } else {
     setPetSprite(petImageContainer);
     setLoveTotal(localData.loveTotal, loveCounter);
