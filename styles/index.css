@@ -1042,6 +1042,10 @@ progress[value][id="hunger"]::-moz-progress-bar {
     border-color: #4AB4DE;
 }
 
+.ocean-breeze .nav__container a:hover {
+    color: #345DA7;
+}
+
 /* Utilities */
 
 .is--hidden {
