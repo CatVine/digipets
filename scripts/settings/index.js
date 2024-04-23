@@ -34,6 +34,8 @@ export const setSound = (soundOn, window, toggle) => {
     const bgMusicPlayer = document.querySelector('#bgMusic');
     const buttons = [...window.querySelectorAll('button')];
     const petSprite = document.querySelector('#petSprite');
+    bgMusicPlayer.volume = 0.3;
+
     if (soundOn == "true") {
         buttons.forEach((button) => {
             button.addEventListener('click', toggleSound)
@@ -54,15 +56,13 @@ export const setSound = (soundOn, window, toggle) => {
 export const toggleSound = (e) => {
     const clickSound = document.querySelector('#button');
     const itemSound = document.querySelector('#item');
-    const dogSound = document.querySelector('#dog');
+    clickSound.volume = 0.2;
+    itemSound.volume = 0.2;
+
     if (e.target.hasAttribute("data-type")) {
         itemSound.load();
         itemSound.play();
-    } else if (e.target.id === 'petSprite') {
-        dogSound.load();
-        dogSound.play();
-    }
-        else {
+    } else {
         clickSound.load();
         clickSound.play();
     }

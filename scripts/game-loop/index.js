@@ -54,6 +54,8 @@ export const startGameLoop = () => {
 
   petImageContainer.addEventListener('click', () => {
     increaseLove(50, loveCounter)
+    petImageContainer.classList.add('petClick');
+    setTimeout(() => { petImageContainer.classList.remove('petClick')}, "200");
   })
 
   // Handle shop modal events
