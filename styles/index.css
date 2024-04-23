@@ -84,9 +84,6 @@ ul {
 }
 
 @media screen and (max-width: 768px) {
-    .article__container {
-        padding-top: 12px;
-    }
 
     .article__content {
         flex-direction: column;
@@ -641,7 +638,7 @@ select {
     flex-direction: row;
     justify-content: space-between;
     padding: 2.5rem 1.5rem;
-    border-bottom: 1px solid #EAA1B7;
+    border-bottom: 1px solid transparent;
     color: black;
 }
 
@@ -851,10 +848,6 @@ progress[value][id="hunger"]::-moz-progress-bar {
     padding: 20px;
 }
 
-.cotton-candy ::-webkit-scrollbar-track {
-    /* background: #EAA1B7; */
-}
-
 .cotton-candy ::-webkit-scrollbar-thumb {
     background: #BA2C65;
 }
@@ -873,6 +866,10 @@ progress[value][id="hunger"]::-moz-progress-bar {
     border: 2px solid #BA2C65;
 }
 
+.cotton-candy .nav__container {
+    border-color: #EAA1B7;
+}
+
 /* Ocean Breeze */
 
 .ocean-breeze body {
@@ -888,7 +885,8 @@ progress[value][id="hunger"]::-moz-progress-bar {
     color: white;
 }
 
-.ocean-breeze .nav__logo a:hover {
+.ocean-breeze .nav__logo a:hover,
+.ocean-breeze .article__list-item-link:hover {
     color: #345DA7;
 }
 
@@ -989,6 +987,10 @@ progress[value][id="hunger"]::-moz-progress-bar {
 .ocean-breeze .checkbox__input:checked + .checkbox__label:before {
     background-color: #345DA7;
     border: 2px solid #345DA7;
+}
+
+.ocean-breeze .nav__container {
+    border-color: #4AB4DE;
 }
 
 /* Utilities */
