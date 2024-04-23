@@ -298,7 +298,6 @@ select {
     align-items: center;
     gap: 25px;
     margin-top: 12px;
-    flex-wrap: wrap;
 }
 
 .game__option-button {
@@ -311,8 +310,17 @@ select {
 .game__option-image {
     aspect-ratio: 1;
     object-fit: cover;
-    height: 100px;
-    width: 100px;
+    width: 250px;
+}
+
+@media screen and (max-width: 768px) {
+    .game__select-options {
+        flex-direction: column;
+    }
+
+    .game__option-image {
+        width: 150px;
+    }
 }
 
 .game__heading--h1 {
