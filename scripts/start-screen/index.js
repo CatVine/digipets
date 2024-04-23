@@ -15,3 +15,7 @@ export const handleStart = () => {
     startGameLoop();
   });
 };
+
+export const checkSound = () => {
+  
+}
