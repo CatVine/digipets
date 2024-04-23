@@ -11,6 +11,10 @@ export const setLoveTotal = (total, element) => {
         element.textContent = 0;
         localStorage.setItem('loveTotal', 0)
     } else {
+        element.classList.add('loveIncrease');
+        setTimeout(() => {
+            element.classList.remove('loveIncrease');
+        }, "200");
         element.textContent = total;
         localStorage.setItem('loveTotal', total)
     }
