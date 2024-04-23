@@ -13,8 +13,10 @@ export const handleShopModal = (modal) => {
   
   if (modal.classList.contains("is--hidden")) {
     showElement(modal);
+    document.body.classList.add('modal--open');
   } else {
     hideElement(modal);
+    document.body.classList.remove('modal--open');
   }
 
   const shopTabButtons = [...modal.querySelectorAll(".modal__tab-button")];

@@ -11,6 +11,10 @@ export const setLoveTotal = (total, element) => {
         element.textContent = 0;
         localStorage.setItem('loveTotal', 0)
     } else {
+        element.classList.add('loveIncrease');
+        setTimeout(() => {
+            element.classList.remove('loveIncrease');
+        }, "200");
         element.textContent = total;
         localStorage.setItem('loveTotal', total)
     }
@@ -24,8 +28,10 @@ export const handleLoveInterval = (statistic1, statistic2, counterElement) => {
         case (statisticAverage > 50):
             increaseLove(100, counterElement);
             break;
-        case (0 < statisticAverage < 50 ):
+        case (1 <= statisticAverage && statisticAverage < 50 ):
             increaseLove(50, counterElement);
+            break;
+        case 0:
             break;
         default:
             break;
