@@ -24,10 +24,13 @@ export const handleLoveInterval = (statistic1, statistic2, counterElement) => {
         case (statisticAverage > 50):
             increaseLove(100, counterElement);
             break;
-        case (0 < statisticAverage < 50 ):
+        case (1 <= statisticAverage < 50 ):
             increaseLove(50, counterElement);
             break;
         default:
             break;
     }
+
+    console.log(statisticAverage);
+
 }

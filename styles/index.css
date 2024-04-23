@@ -83,6 +83,20 @@ ul {
     margin-top: 2rem;
 }
 
+@media screen and (max-width: 768px) {
+    .article__container {
+        padding-top: 12px;
+    }
+
+    .article__content {
+        flex-direction: column;
+    }
+
+    .article__section {
+        flex-direction: column;
+    }
+}
+
 /* Body */
 
 html,
@@ -872,6 +886,10 @@ progress[value][id="hunger"]::-moz-progress-bar {
 
 .ocean-breeze a:hover {
     color: white;
+}
+
+.ocean-breeze .nav__logo a:hover {
+    color: #345DA7;
 }
 
 .ocean-breeze .article__header {
