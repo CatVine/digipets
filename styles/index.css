@@ -383,6 +383,10 @@ select {
 
 /* Modal */
 
+.modal--open {
+    overflow-y: hidden;
+}
+
 .modal {
     background: rgba(0, 0, 0, 0.5);
     height: 100%;

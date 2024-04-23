@@ -6,8 +6,10 @@ export const handleSettingsModal = (modal, window) => {
 
     if (modal.classList.contains("is--hidden")) {
         showElement(modal);
+        document.body.classList.add('modal--open');
     } else {
         hideElement(modal);
+        document.body.classList.remove('modal--open');
     }
 
     sound.addEventListener('change', function (e) {

@@ -59,14 +59,21 @@ export const startGameLoop = () => {
   // Handle shop modal events
 
   shopButton.addEventListener('click', () => { handleShopModal(shopModal) });
-  shopCloseButton.addEventListener('click', () => { hideElement(shopModal) })
+  shopCloseButton.addEventListener('click', () => { 
+    hideElement(shopModal),
+    document.body.classList.remove('modal--open');
+  })
 
   // Handle item modal 
   inventoryButton.addEventListener('click', () => { handleInventoryModal(inventoryModal, petImageContainer) });
-  inventoryCloseButton.addEventListener('click', () => { hideElement(inventoryModal) })
+  inventoryCloseButton.addEventListener('click', () => { 
+    hideElement(inventoryModal),
+    document.body.classList.remove('modal--open')})
 
   settingsButton.addEventListener('click', () => { handleSettingsModal(settingsModal, mainGameWindow) });
-  settingsCloseButton.addEventListener('click', () => { hideElement(settingsModal) });
+  settingsCloseButton.addEventListener('click', () => { 
+    hideElement(settingsModal),
+    document.body.classList.remove('modal--open'); });
   // Set progress bar decrease
 
   setInterval(() => { reduceStatistic(hungerBar, 1) }, 1000);
