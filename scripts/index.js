@@ -18,4 +18,6 @@ setTheme(localStorage.getItem('theme'));
 
 // Handle game start
 
-handleStart();
+if (document.querySelector('#main-game')) {
+    handleStart();
+}

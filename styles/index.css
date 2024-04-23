@@ -83,6 +83,17 @@ ul {
     margin-top: 2rem;
 }
 
+@media screen and (max-width: 768px) {
+
+    .article__content {
+        flex-direction: column;
+    }
+
+    .article__section {
+        flex-direction: column;
+    }
+}
+
 /* Body */
 
 html,
@@ -151,6 +162,65 @@ a {
     .button {
         padding: 12px 14px;
     }
+}
+
+/* Checkbox */
+
+.checkbox {
+    display: block;
+    position: relative;
+    min-height: 30px;
+    padding: 0 0 0 45px;
+    clear: left;
+    padding-top: 5px;
+}
+
+.checkbox__input {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    margin: 0;
+    opacity: 0;
+}
+
+.checkbox__label {
+    position: static;
+    cursor: pointer;
+}
+
+.checkbox__label:before {
+        content: "";
+        text-align: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 28px;
+        height: 28px;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        background-color: white;
+}
+
+.checkbox__input:checked + .checkbox__label:before {
+        background-color: transparent;
+        border: 2px solid transparent;
+}
+
+.checkbox__input:checked + .checkbox__label:after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 7px;
+    width: 14px;
+    height: 8px;
+    transform: rotate(-45deg);
+    border: solid;
+    border-width: 0 0 3px 3px;
+    border-color: white;
 }
 
 /* Font */
@@ -228,7 +298,6 @@ select {
     align-items: center;
     gap: 25px;
     margin-top: 12px;
-    flex-wrap: wrap;
 }
 
 .game__option-button {
@@ -241,8 +310,17 @@ select {
 .game__option-image {
     aspect-ratio: 1;
     object-fit: cover;
-    height: 100px;
-    width: 100px;
+    width: 250px;
+}
+
+@media screen and (max-width: 768px) {
+    .game__select-options {
+        flex-direction: column;
+    }
+
+    .game__option-image {
+        width: 150px;
+    }
 }
 
 .game__heading--h1 {
@@ -307,7 +385,28 @@ select {
     align-items: center;
 }
 
-.game__love-value {}
+.loveIncrease {
+    animation-name: expand;
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    transition: 0.1s all;
+  }
+  
+  @-webkit-keyframes expand {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+      color: white;
+    }
+    100% {
+        transform: scale(1);
+      }
+  }
+
 
 .game__menu {
     display: flex;
@@ -317,6 +416,26 @@ select {
 }
 
 .game__menu-item {}
+
+.petClick {
+    animation-name: clickBounce;
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  
+  @-webkit-keyframes clickBounce {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+      }
+  }
 
 /* Layout */
 
@@ -342,6 +461,7 @@ select {
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 998;
 }
 
 .mobile-nav__list {
@@ -381,6 +501,10 @@ select {
 }
 
 /* Modal */
+
+.modal--open {
+    overflow-y: hidden;
+}
 
 .modal {
     background: rgba(0, 0, 0, 0.5);
@@ -446,15 +570,15 @@ select {
 
     .modal:not(.modal--small) .modal__container,
     .modal:not(.modal--small) .modal__content {
-        padding: 1rem;
+        padding: 0;
     }
 
     .modal:not(.modal--small) .modal__content {
+        padding: 1rem;
         padding-top: 3rem;
         width: 100%;
         height: 100%;
-        min-height: 95vh;
-        max-height: 95vh;
+        min-height: 100vh;
         min-width: 100%;
     }
 }
@@ -510,7 +634,7 @@ select {
     align-self: center;
     background: white;
     border-radius: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .modal__item-information {
@@ -519,7 +643,7 @@ select {
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .modal__item-value {
@@ -563,7 +687,7 @@ select {
     flex-direction: row;
     justify-content: space-between;
     padding: 2.5rem 1.5rem;
-    border-bottom: 1px solid #EAA1B7;
+    border-bottom: 1px solid transparent;
     color: black;
 }
 
@@ -695,7 +819,7 @@ progress[value][id="hunger"]::-moz-progress-bar {
 }
 
 .cotton-candy .article__description {
-    color: #4A2937;
+    color: #752848;
 }
 
 .cotton-candy .button {
@@ -773,17 +897,26 @@ progress[value][id="hunger"]::-moz-progress-bar {
     padding: 20px;
 }
 
-.cotton-candy ::-webkit-scrollbar-track {
-    background: #EAA1B7;
-}
-
 .cotton-candy ::-webkit-scrollbar-thumb {
-    background: white;
+    background: #BA2C65;
 }
 
 /* Handle on hover */
 .cotton-candy ::-webkit-scrollbar-thumb:hover {
-    background: #BA2C65;
+    background: #9b1f50;
+}
+
+.cotton-candy .checkbox__label:before {
+    border: 2px solid #BA2C65;
+}
+
+.cotton-candy .checkbox__input:checked + .checkbox__label:before {
+    background-color: #BA2C65;
+    border: 2px solid #BA2C65;
+}
+
+.cotton-candy .nav__container {
+    border-color: #EAA1B7;
 }
 
 /* Ocean Breeze */
@@ -801,6 +934,11 @@ progress[value][id="hunger"]::-moz-progress-bar {
     color: white;
 }
 
+.ocean-breeze .nav__logo a:hover,
+.ocean-breeze .article__list-item-link:hover {
+    color: #345DA7;
+}
+
 .ocean-breeze .article__header {
     background: #4AB4DE
 }
@@ -810,7 +948,7 @@ progress[value][id="hunger"]::-moz-progress-bar {
 }
 
 .ocean-breeze .article__description {
-    color: #345DA7;
+    color: #163979;
 }
 
 .ocean-breeze .button {
@@ -882,17 +1020,30 @@ progress[value][id="hunger"]::-moz-progress-bar {
     color: white;
 }
 
-.ocean-breeze ::-webkit-scrollbar-track {
-    background: #4AB4DE;
-}
-
 .ocean-breeze ::-webkit-scrollbar-thumb {
-    background: white;
+    background: #345DA7;
 }
 
 /* Handle on hover */
 .ocean-breeze ::-webkit-scrollbar-thumb:hover {
-    background: #345DA7;
+    background: #284d90;
+}
+
+.ocean-breeze .checkbox__label:before {
+    border: 2px solid #345DA7;
+}
+
+.ocean-breeze .checkbox__input:checked + .checkbox__label:before {
+    background-color: #345DA7;
+    border: 2px solid #345DA7;
+}
+
+.ocean-breeze .nav__container {
+    border-color: #4AB4DE;
+}
+
+.ocean-breeze .nav__container a:hover {
+    color: #345DA7;
 }
 
 /* Utilities */
