@@ -838,16 +838,16 @@ progress[value][id="hunger"]::-moz-progress-bar {
 }
 
 .cotton-candy ::-webkit-scrollbar-track {
-    background: #EAA1B7;
+    /* background: #EAA1B7; */
 }
 
 .cotton-candy ::-webkit-scrollbar-thumb {
-    background: white;
+    background: #BA2C65;
 }
 
 /* Handle on hover */
 .cotton-candy ::-webkit-scrollbar-thumb:hover {
-    background: #BA2C65;
+    background: #9b1f50;
 }
 
 .cotton-candy .checkbox__label:before {
@@ -955,17 +955,13 @@ progress[value][id="hunger"]::-moz-progress-bar {
     color: white;
 }
 
-.ocean-breeze ::-webkit-scrollbar-track {
-    background: #4AB4DE;
-}
-
 .ocean-breeze ::-webkit-scrollbar-thumb {
-    background: white;
+    background: #345DA7;
 }
 
 /* Handle on hover */
 .ocean-breeze ::-webkit-scrollbar-thumb:hover {
-    background: #345DA7;
+    background: #284d90;
 }
 
 .ocean-breeze .checkbox__label:before {
