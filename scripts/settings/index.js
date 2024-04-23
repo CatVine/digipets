@@ -33,16 +33,19 @@ export const deleteData = () => {
 export const setSound = (soundOn, window, toggle) => {
     const bgMusicPlayer = document.querySelector('#bgMusic');
     const buttons = [...window.querySelectorAll('button')];
+    const petSprite = document.querySelector('#petSprite');
     if (soundOn == "true") {
         buttons.forEach((button) => {
             button.addEventListener('click', toggleSound)
         })
+        petSprite.addEventListener('click', toggleSound);
         bgMusicPlayer.play();
         toggle.checked = true;
     } else {
         buttons.forEach((button) => {
             button.removeEventListener('click', toggleSound);
         })
+        petSprite.removeEventListener('click', toggleSound);
         bgMusicPlayer.pause();
         toggle.checked = false;
     }
@@ -51,11 +54,16 @@ export const setSound = (soundOn, window, toggle) => {
 export const toggleSound = (e) => {
     const clickSound = document.querySelector('#button');
     const itemSound = document.querySelector('#item');
+    const dogSound = document.querySelector('#dog');
     if (e.target.hasAttribute("data-type")) {
-        itemSound.pause();
+        itemSound.load();
         itemSound.play();
-    } else {
-        clickSound.pause();
+    } else if (e.target.id === 'petSprite') {
+        dogSound.load();
+        dogSound.play();
+    }
+        else {
+        clickSound.load();
         clickSound.play();
     }
 }

@@ -593,7 +593,7 @@ select {
     align-self: center;
     background: white;
     border-radius: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .modal__item-information {
@@ -602,7 +602,7 @@ select {
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .modal__item-value {
