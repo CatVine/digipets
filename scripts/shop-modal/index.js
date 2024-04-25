@@ -1,5 +1,6 @@
 import { showElement, hideElement } from "../utils/index.js";
 import { setLoveTotal } from "../love-counter/index.js";
+import { toggleSound } from "../settings/index.js";
 
 export const handleShopModal = (modal) => {
   setShopItems(JSON.parse(localStorage.getItem("items")), shopModal);
@@ -8,7 +9,7 @@ export const handleShopModal = (modal) => {
   const shopItemButtons = [...modal.querySelectorAll(".modal__item-button")];
 
   shopItemButtons.forEach((button) => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (e) => {
       handleBuyItem(button);
       if (soundOn) {
         toggleSound(e);
@@ -36,6 +37,8 @@ export const handleShopModal = (modal) => {
       switchTab(shopTabs, associatedTabPanel, shopTabButtons, button);
     });
   });
+
+  shopTabButtons[0].focus();
 };
 
 export const switchTab = (tabs, tabPanel, tabButtons, activeTab) => {
@@ -52,6 +55,9 @@ export const switchTab = (tabs, tabPanel, tabButtons, activeTab) => {
   tabButtons.forEach((button) => {
     if (button === activeTab) {
       button.classList.add("is--active");
+      button.ariaSelected = true;
+    } else {
+      button.ariaSelected = false;
     }
   });
 };
@@ -126,7 +132,7 @@ export const composeShopElements = (items, type) => {
           item.purchased ? " disabled" : ""
         }" data-type="${type}" data-item-id="${item.id}" data-item-price="${
         item.price
-      } ">
+      } " aria-live="polite">
             ${item.purchased ? "Sold Out" : "Buy"}
         </button>
     </li>`
@@ -166,7 +172,5 @@ export const handleBuyItem = (button) => {
       }
     }
     localStorage.setItem("items", JSON.stringify(currentItems));
-  } else {
-    console.log("not enough love!");
   }
 };

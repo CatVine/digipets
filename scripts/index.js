@@ -7,7 +7,8 @@ const mobileNavButton = document.querySelector('.js-mobile-nav__btn');
 const mobileNavElement = document.querySelector('.js-mobile-nav');
 
 if (mobileNavButton) {
-    mobileNavButton.addEventListener('click', () => { toggleMobileNav(mobileNavElement) });
+    mobileNavButton.ariaExpanded = false;
+    mobileNavButton.addEventListener('click', () => { toggleMobileNav(mobileNavElement, mobileNavButton) });
 }
 
 // Handle theme toggling

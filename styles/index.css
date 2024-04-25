@@ -85,12 +85,14 @@ ul {
 }
 
 .article__section+.article__section {
-    margin-top: 2rem;
+    margin-top: 4rem;
 }
 
 .article__image {
     max-height: 300px;
     object-fit: cover;
+    border: 5px solid transparent;
+    border-radius: 10px;
 }
 
 .article__section-paragraph + * {
@@ -117,8 +119,6 @@ ul {
     
     .article__image {
         max-height: 250px;
-        border: 5px solid transparent;
-        border-radius: 10px;
     }
 }
 
@@ -180,6 +180,12 @@ a {
     align-items: center;
     justify-content: center;
     padding: 8px 20px;
+}
+
+.button--large {
+    font-size: 20px;
+    padding: 15px 20px;
+    border-radius: 15px;
 }
 
 @media screen and (max-width:768px) {
@@ -268,7 +274,7 @@ select,
     letter-spacing: 1px;
 }
 
-.footer p,
+.footer__credits small,
 .article__container p,
 .article__container li {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -594,6 +600,22 @@ select,
 
 }
 
+.modal__content-heading {
+    font-size: 24px;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 12px;
+    width: 100%;
+    text-align: center;
+}
+
+.modal__content label {
+    font-size: 20px;
+}
+
+.modal__content-heading + * {
+    margin-top: 12px;
+}
+
 .modal__content-inner > *:not(:last-child) {
     margin-bottom: 24px;
 }
@@ -728,7 +750,7 @@ select,
     color: black;
 }
 
-.nav__logo p {
+.nav__logo h1 {
     font-size: 30px;
 }
 
@@ -773,6 +795,27 @@ select,
     border-radius: 20px;
     padding: 5px 10px;
 }
+
+/* Skip */
+/* CSS adapted from https://www.w3schools.com/accessibility/accessibility_skip_links.php#:~:text=The%20skip%20link%20is%20a,to%20it%20with%20an%20anchor.&text=That's%20it.,No%20JavaScript. */
+
+.skip {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    transition: none;
+  }
+
+  .skip:focus {
+    display: block;
+    position: static;
+    width: 100%;
+    height: auto    ;
+    text-align: center;
+  }
 
 /* Statistic Bar */
 
@@ -867,6 +910,12 @@ progress[value][id="hunger"]::-moz-progress-bar {
     border-color: #EAA1B7;
 }
 
+.cotton-candy .button--accent {
+    background: #EAA1B7;
+    border-color: #BA2C65;
+    color: black;
+}
+
 .cotton-candy .button:not(.disabled):hover {
     color: white;
     border-color: #BA2C65;
@@ -925,6 +974,10 @@ progress[value][id="hunger"]::-moz-progress-bar {
 .cotton-candy .modal__item-button.equipped {
     background: #BA2C65;
     color: white;
+}
+
+.cotton-candy .modal__content-heading {
+    border-color: #EAA1B7;
 }
 
 .cotton-candy progress[value] {
@@ -1000,6 +1053,12 @@ progress[value][id="hunger"]::-moz-progress-bar {
     border-color: #4AB4DE;
 }
 
+.ocean-breeze .button--accent {
+    background: #4AB4DE;
+    border-color: #345DA7;
+    color: black;
+}
+
 .ocean-breeze .button:not(.disabled):hover {
     color: white;
     background: #345DA7;
@@ -1060,6 +1119,10 @@ progress[value][id="hunger"]::-moz-progress-bar {
     color: white;
 }
 
+.ocean-breeze .modal__content-heading {
+    border-color: #4AB4DE;
+}
+
 .ocean-breeze progress[value] {
     border: 2px solid #345DA7;
     color: white;
@@ -1096,4 +1159,16 @@ progress[value][id="hunger"]::-moz-progress-bar {
 
 .is--hidden {
     display: none;
+}
+
+/* visually hidden CSS borrowed from https://www.a11yproject.com/posts/how-to-hide-content/ */
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
