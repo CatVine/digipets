@@ -26,16 +26,16 @@ export const handleInventoryModal = (modal, petImageContainer) => {
     document.body.classList.remove('modal--open');
   }
 
-  const shopTabButtons = [...modal.querySelectorAll(".modal__tab-button")];
-  const shopTabs = [...modal.querySelectorAll(".modal__tab-panel")];
+  const itemTabButtons = [...modal.querySelectorAll(".modal__tab-button")];
+  const itemTabs = [...modal.querySelectorAll(".modal__tab-panel")];
 
-  shopTabButtons.forEach((button) => {
-    const associatedTabPanel = shopTabs.filter(
+  itemTabButtons.forEach((button) => {
+    const associatedTabPanel = itemTabs.filter(
       (tab) => tab.id === button.dataset.toggle
     )[0];
 
     button.addEventListener("click", () => {
-      switchTab(shopTabs, associatedTabPanel, shopTabButtons, button);
+      switchTab(itemTabs, associatedTabPanel, itemTabButtons, button);
     });
   });
 };
