@@ -113,7 +113,7 @@ export const composeInventoryElements = (items, type) => {
         } alt="" />
 
         <div class="modal__item-information">
-            <p class="modal__item-name">${item.name}</p>
+            <p class="modal__item-name" id="${item.name}-name">${item.name}</p>
             ${type === "care" ? (`<p class="modal__item-value">x
             <span class="modal__item-quantity">
                 ${item.quantity}
@@ -127,7 +127,7 @@ export const composeInventoryElements = (items, type) => {
 
         <button class="modal__item-button button button--small ${
           item.equipped ? " equipped" : ""
-        }" data-type="${type}" data-item-id="${item.id}" aria-live="polite">
+        }" data-type="${type}" data-item-id="${item.id}" aria-live="polite" aria-labelledby="${item.name}-name">
             ${type === "care" ? "Use" : item.equipped ? "Equipped" : "Equip"}
         </button>
     </li>`

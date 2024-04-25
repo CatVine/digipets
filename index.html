@@ -251,11 +251,11 @@
                             <ul class="statistic-bar__list">
                                 <li class="statistic-bar__item">
                                     <label for="hunger">Hunger</label>
-                                    <progress id="hunger" max="100" value="100"></progress>
+                                    <progress aria-live="polite"id="hunger" max="100" value="100"></progress>
                                 </li>
                                 <li class="statistic-bar__item">
                                     <label for="thirst">Thirst</label>
-                                    <progress id="thirst" max="100" value="100"></progress>
+                                    <progress aria-live="polite" id="thirst" max="100" value="100"></progress>
                                 </li>
                             </ul>
 
@@ -274,7 +274,7 @@
                         </div>
 
                         <div class="game__sprite-container">
-                            <img id="petSprite" class="game__sprite" src="#" alt="An interactable sprite of a dog">
+                            <img tabindex="0" id="petSprite" class="game__sprite" src="#" alt="An interactable sprite of a dog">
                         </div>
 
                         <div class="game__main-bottom">
