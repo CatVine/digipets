@@ -73,6 +73,7 @@ ul {
 
 .article__section-heading {
     margin-bottom: 1.5rem;
+    font-size: 24px;
 }
 
 .article__section>* {
@@ -99,6 +100,10 @@ ul {
 
     .article__section {
         flex-direction: column;
+    }
+
+    .article__section-paragraph {
+        max-width: 65ch;
     }
 }
 
@@ -241,9 +246,18 @@ a {
 body,
 button,
 input,
-select {
+select,
+.nav__logo p,
+.article__container a {
     font-family: DiaryOfAn8BitMage;
     letter-spacing: 1px;
+}
+
+.footer p,
+.article__container p,
+.article__container li {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
 }
 
 /* Footer */
