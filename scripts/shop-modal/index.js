@@ -1,13 +1,18 @@
 import { showElement, hideElement } from "../utils/index.js";
 import { setLoveTotal } from "../love-counter/index.js";
-import { setInventoryItems } from "../item-modal/index.js";
 
 export const handleShopModal = (modal) => {
+  setShopItems(JSON.parse(localStorage.getItem("items")), shopModal);
+  const soundOn = localStorage.getItem('sound');
+
   const shopItemButtons = [...modal.querySelectorAll(".modal__item-button")];
 
   shopItemButtons.forEach((button) => {
     button.addEventListener("click", () => {
       handleBuyItem(button);
+      if (soundOn) {
+        toggleSound(e);
+      }
     });
   });
   
@@ -61,6 +66,7 @@ export const setShopItems = (itemData, modal) => {
 
   shopTabs.forEach((tab) => {
     const listContainer = tab.querySelector("ul");
+    listContainer.innerHTML = "";
     let listItems;
 
     switch (tab.id) {
@@ -156,6 +162,7 @@ export const handleBuyItem = (button) => {
           itemToUpdate.purchased = true;
           button.classList.add("disabled");
           button.textContent = "Sold out";
+          break;
       }
     }
     localStorage.setItem("items", JSON.stringify(currentItems));
