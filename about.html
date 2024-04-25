@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="cotton-candy">
+<html class="cotton-candy" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -11,12 +11,13 @@
 </head>
 
 <body class="body">
-    <div class="nav">
+    <header class="nav">
+        <a href="#main" class="skip">Skip to main content</a>
         <div class="wrap">
             <nav class="nav__container">
                 <div class="nav__logo">
                     <a href="index.html">
-                        <p>Digipets</p>
+                        <h1>Digipets</h1>
                     </a>
                 </div>
 
@@ -33,7 +34,7 @@
                     </li>
                 </ul>
 
-                <button class="mobile-nav__button js-mobile-nav__btn">
+                <button class="mobile-nav__button js-mobile-nav__btn" aria-label="Toggle mobile navigation">
                     <svg x="0px" y="0px" width="25" height="25" viewBox="0 0 50 50">
                         <path
                             d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z">
@@ -55,9 +56,9 @@
                 </nav>
             </nav>
         </div>
-    </div>
+    </header>
 
-    <main class="main">
+    <main class="main" id="main">
         <div class="wrap">
             <header class="article__header">
                 <h1 class="article__heading">
@@ -84,7 +85,7 @@
                     </div>
 
                     <div class="article__section-right">
-                        <img class="article__image" alt="Image description" src="/assets/img/general/cat.png" />
+                        <img class="article__image" alt="Drawing showing a cartoon version of the site's developer" src="/assets/img/general/cat.png" />
                     </div>
                 </section>
 
@@ -101,7 +102,7 @@
                     </div>
 
                     <div class="article__section-right">
-                        <img class="article__image" alt="Image description" src="/assets/img/sprites/dog-black--rainbow.png" />
+                        <img class="article__image" alt="A pixel art sprite of a Digipets pet" src="/assets/img/sprites/dog-black--rainbow.png" />
                     </div>
                 </section>
             </article>
@@ -116,7 +117,7 @@
                     </small>
     
                     <form class="footer__theme-select" id="themeSelect">
-                        <select class="select">
+                        <select class="select" id="themeSelectInput">
                             <option class="select__option" value="">
                                 Select Theme
                             </option>
@@ -127,22 +128,23 @@
                                 Ocean Breeze
                             </option>
                         </select>
+                        <label class="visually-hidden" for="themeSelectInput">Select theme</label>
                     </form>
                 </div>
                 <div class="footer__credits">
-                    <p class="footer__credit">Icons by <a class="footer__credit-link"
-                            href="https://www.svgrepo.com/">SVGRepo</a>
-                    </p>
-                    <p class="footer__credit">"Silly Fun" Kevin MacLeod (<a
+                    <small class="footer__credit">Icons by <a class="footer__credit-link"
+                        href="https://www.svgrepo.com/">SVGRepo</a>
+                </small>
+                <small class="footer__credit">"Silly Fun" Kevin MacLeod (<a
                         href="http://incompetech.com">incompetech.com</a>)<br />
                     Licensed under <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons: By Attribution 4.0 License</a>
-                </p>
-                    <p class="footer__credit">
-                        Sound Effect by <a
-                            href="https://pixabay.com/users/floraphonic-38928062/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=185287">floraphonic</a>
-                        from <a
-                            href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=185287">Pixabay</a>
-                    </p>
+                </small>
+                <small class="footer__credit">
+                    Sound Effect by <a
+                        href="https://pixabay.com/users/floraphonic-38928062/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=185287">floraphonic</a>
+                    from <a
+                        href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=185287">Pixabay</a>
+                </small>
                 </div>
             </div>
         </div>
