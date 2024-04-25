@@ -76,6 +76,10 @@ ul {
     font-size: 24px;
 }
 
+.article__section-right {
+    text-align: center;
+}
+
 .article__section>* {
     flex-basis: 50%;
 }
@@ -85,7 +89,8 @@ ul {
 }
 
 .article__image {
-    max-height: 300px
+    max-height: 300px;
+    object-fit: cover;
 }
 
 .article__section-paragraph + * {
@@ -104,6 +109,16 @@ ul {
 
     .article__section-paragraph {
         max-width: 65ch;
+    }
+
+    .article__section-right {
+        text-align: left;
+    }
+    
+    .article__image {
+        max-height: 250px;
+        border: 5px solid transparent;
+        border-radius: 10px;
     }
 }
 
@@ -844,6 +859,10 @@ progress[value][id="hunger"]::-moz-progress-bar {
     color: #752848;
 }
 
+.cotton-candy .article__image{
+    border-color: #BA2C65;
+}
+
 .cotton-candy .button {
     border-color: #EAA1B7;
 }
@@ -971,6 +990,10 @@ progress[value][id="hunger"]::-moz-progress-bar {
 
 .ocean-breeze .article__description {
     color: #163979;
+}
+
+.ocean-breeze .article__image{
+    border-color: #163979;
 }
 
 .ocean-breeze .button {
