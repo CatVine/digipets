@@ -83,7 +83,15 @@ ul {
     margin-top: 2rem;
 }
 
-@media screen and (max-width: 768px) {
+.article__image {
+    max-height: 300px
+}
+
+.article__section-paragraph + * {
+    margin-top: 12px;
+}
+
+@media screen and (max-width: 1024px) {
 
     .article__content {
         flex-direction: column;
