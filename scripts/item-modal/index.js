@@ -38,6 +38,8 @@ export const handleInventoryModal = (modal, petImageContainer) => {
       switchTab(itemTabs, associatedTabPanel, itemTabButtons, button);
     });
   });
+
+  itemTabButtons[0].focus();
 };
 
 export const switchTab = (tabs, tabPanel, tabButtons, activeTab) => {
@@ -125,7 +127,7 @@ export const composeInventoryElements = (items, type) => {
 
         <button class="modal__item-button button button--small ${
           item.equipped ? " equipped" : ""
-        }" data-type="${type}" data-item-id="${item.id}"">
+        }" data-type="${type}" data-item-id="${item.id}" aria-live="polite">
             ${type === "care" ? "Use" : item.equipped ? "Equipped" : "Equip"}
         </button>
     </li>`

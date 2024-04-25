@@ -36,6 +36,7 @@ export const startGameLoop = () => {
     setBackgroundImage(mainGameWindow, defaultBGImage);
     setLoveTotal(0, loveCounter);
   } else {
+    //Handle setting default state for all game elements
     const petType = JSON.parse(localStorage.getItem('petChoice')).name;
     setPetSprite(petImageContainer);
     setLoveTotal(localData.loveTotal, loveCounter);
@@ -50,7 +51,7 @@ export const startGameLoop = () => {
     showElement(mainGameWindow);
   }
 
-  // Set pet love event
+  // Create pet love event listener
 
   petImageContainer.addEventListener('click', () => {
     increaseLove(50, loveCounter)
@@ -72,11 +73,14 @@ export const startGameLoop = () => {
     hideElement(inventoryModal),
     document.body.classList.remove('modal--open')})
 
+
+  // Handle settings modal
   settingsButton.addEventListener('click', () => { handleSettingsModal(settingsModal, mainGameWindow) });
   settingsCloseButton.addEventListener('click', () => { 
     hideElement(settingsModal),
     document.body.classList.remove('modal--open'); });
-  // Set progress bar decrease
+
+  // Set statistic bar decrease and associated Love increment
 
   setInterval(() => { reduceStatistic(hungerBar, 1) }, 1000);
   setInterval(() => { reduceStatistic(thirstBar, 1) }, 1000)
