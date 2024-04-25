@@ -124,7 +124,7 @@ ul {
 
 @media screen and (max-width: 480px) {
     .article__image {
-        max-width: 300px;
+        max-width: 250px;
     }
 }
 
