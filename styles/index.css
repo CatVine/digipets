@@ -160,6 +160,11 @@ a {
     border-radius: 10px;
 }
 
+*:focus,
+*:focus-visible {
+    outline: black solid 4px;
+}
+
 /* Button */
 
 .button {
